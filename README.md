@@ -7,7 +7,7 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Roadmap
 
-These are what I've planned. If you have any suggestions, please raise an issue.
+These are what I've planned. If you have any suggestions, please [raise an issue](https://github.com/benfreke/oc-menumanager-plugin/issues) on the plugin's [github repository](https://github.com/benfreke/oc-menumanager-plugin).
 
 ### 1.0.2
 
