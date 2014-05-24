@@ -1,0 +1,14 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  title:
+    label: Title
+
+  url :
+      label: Page to Link To
+      type: dropdown
+      options: getUrlOptions
+  description:
+      label: Purpose/Description (optional)

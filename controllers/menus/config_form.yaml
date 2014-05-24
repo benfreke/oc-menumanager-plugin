@@ -1,0 +1,32 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Menus
+
+# Model Form Field configuration
+form: @/plugins/benfreke/menumanager/models/menu/fields.yaml
+
+# Model Class name
+modelClass: BenFreke\MenuManager\Models\Menu
+
+# Default redirect location
+defaultRedirect: benfreke/menumanager/menus
+
+# Create page
+create:
+    title: Create Menus
+    redirect: benfreke/menumanager/menus/update/:id
+    redirectClose: benfreke/menumanager/menus
+
+# Update page
+update:
+    title: Edit Menus
+    redirect: benfreke/menumanager/menus
+    redirectClose: benfreke/menumanager/menus
+
+# Preview page
+preview:
+    title: Preview Menus
+

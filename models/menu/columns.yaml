@@ -1,0 +1,15 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+  title:
+      label: Title
+      searchable: true
+  url:
+      label: Link
+      searchable: true
+      options: getUrlOptions
+  description:
+      label: Purpose
+      searchable: true
