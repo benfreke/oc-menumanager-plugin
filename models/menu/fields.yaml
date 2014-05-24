@@ -5,10 +5,9 @@
 fields:
   title:
     label: Title
-
-  url :
-      label: Page to Link To
-      type: dropdown
-      options: getUrlOptions
+  url:
+    label: File to link To
+    type: dropdown
+    options: getUrlOptions
   description:
-      label: Purpose/Description (optional)
+    label: Purpose/Description (optional)

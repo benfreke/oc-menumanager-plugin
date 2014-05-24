@@ -1,4 +1,3 @@
 1.0.1:
   - First version of MenuManager
   - create_menus_table.php
-  - seed_all_tables.php

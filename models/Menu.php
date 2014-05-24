@@ -81,14 +81,9 @@ class Menu extends Model
     {
         $pages = Page::sortBy('baseFileName')->lists('title', 'baseFileName');
         foreach($pages as $key => $value) {
-            $pages[$key] = "{$value} - (uri: $key)";
+            $pages[$key] = "{$value} - (File: $key)";
         }
         return $pages;
-    }
-
-    public function getTest()
-    {
-        return 'asdf';
     }
 
 }

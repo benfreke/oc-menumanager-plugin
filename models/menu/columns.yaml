@@ -4,12 +4,12 @@
 
 columns:
   title:
-      label: Title
-      searchable: true
+    label: Title
+    searchable: true
   url:
-      label: Link
-      searchable: true
-      options: getUrlOptions
+    label: File linked to
+    searchable: true
+    options: getUrlOptions
   description:
-      label: Purpose
-      searchable: true
+    label: Description
+    searchable: true
