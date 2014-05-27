@@ -16,13 +16,23 @@ class Menu extends ComponentBase
         ];
     }
 
+    /**
+     * @return array
+     * @todo Change start to parentNode to match my naming
+     */
     public function defineProperties()
     {
         return [
-            'start'            => [
+            'start'       => [
                 'description' => 'The parent node to get the children of',
                 'title'       => 'Parent Node',
                 'default'     => 1,
+                'type'        => 'dropdown'
+            ],
+            'activeNode'       => [
+                'description' => 'The active page. Set to "default" for the current page to be set as active',
+                'title'       => 'Active Node',
+                'default'     => 0,
                 'type'        => 'dropdown'
             ],
             'primaryClasses'   => [
@@ -42,6 +52,17 @@ class Menu extends ComponentBase
                 'title'       => 'Tertiary Classes',
                 'default'     => '',
                 'type'        => 'string'
+            ],
+            'numberOfLevels'   => [
+                'description' => 'How many levels of menu to output',
+                'title'       => 'Depth',
+                'default'     => '2', // This is the array key, not the value itself
+                'type'        => 'dropdown',
+                'options'     => [
+                    1 => '1',
+                    2 => '2',
+                    3 => '3'
+                ]
             ]
         ];
 
@@ -49,7 +70,7 @@ class Menu extends ComponentBase
 
     /**
      * Returns the list of menu items I can select
-     * @return mixed
+     * @return array
      */
     public function getStartOptions()
     {
@@ -57,22 +78,69 @@ class Menu extends ComponentBase
         return $menuModel->getSelectList();
     }
 
+    /**
+     * Returns the list of menu items, plus an empty default option
+     *
+     * @return array
+     */
+    public function getActiveNodeOptions()
+    {
+        $options = $this->getStartOptions();
+        array_unshift($options, 'default');
+
+        return $options;
+    }
+
     public function onRun()
     {
-        /**
-         * Because I'm using the id, I needed to trick OctoberCMS into thinking the id is a string
-         * So this hack below fixes that and gives me back my id
-         */
-        $startNode = $this->property('start');
-        $topMenuId = substr($startNode, 3);
-
         // Set the parentNode for the component output
+        $topMenuId = $this->getIdFromProperty($this->property('start'));
         $this->page['parentNode'] = menuModel::find($topMenuId);
+
+        // What page is active?
+        $this->page['activeLeft']  = 0;
+        $this->page['activeRight'] = 0;
+        $activeNode                = $this->getIdFromProperty($this->property('activeNode'));
+
+        // Was a different node supplied or do I need to find the current page?
+        if ($activeNode) {
+            $activeNode = menuModel::find($activeNode);
+        } else {
+            $baseFileName = $this->page->page->getBaseFileName();
+            $activeNode   = menuModel::where('url', $baseFileName)->first();
+        }
+
+        // Everything is probably good, but let's make absolutely sure I don't throw any errors
+        if ($activeNode && menuModel::getClassName() === get_class($activeNode)) {
+            $this->page['activeLeft']  = (int)$activeNode->nest_left;
+            $this->page['activeRight'] = (int)$activeNode->nest_right;
+        }
+
+        // How deep do we want to go?
+        $this->page['numberOfLevels'] = (int)$this->property('numberOfLevels');
 
         // Add the classes to the view
         $this->page['primaryClasses']   = $this->property('primaryClasses');
         $this->page['secondaryClasses'] = $this->property('secondaryClasses');
         $this->page['tertiaryClasses']  = $this->property('tertiaryClasses');
     }
+
+    /**
+     * Gets the id from the passed property
+     *  Due to the component inspector re-ordering the array on keys, and me using the key as the menu model id,
+     *  I've been forced to add a string to the key. This method removes it and returns the raw id.
+     *
+     * @param $value
+     *
+     * @return bool|string
+     */
+    protected function getIdFromProperty($value)
+    {
+        if (!strlen($value) > 3) {
+            return false;
+        }
+        return substr($value, 3);
+    }
+
 
 }

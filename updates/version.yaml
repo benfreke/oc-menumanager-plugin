@@ -1,3 +1,5 @@
 1.0.1:
   - First version of MenuManager
   - create_menus_table.php
+1.0.2:
+  - Added active state to menu; Added ability to select active menu item; Added controllable depth to component

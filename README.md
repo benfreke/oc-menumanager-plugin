@@ -5,29 +5,71 @@ After installation you are able to add, edit and remove Menus from your site.
 
 A component is included to output the menu in pages/partials/layout. It can include up to 3 levels of content. Add it as you would any other component.
 
-## Roadmap
+## Versions ##
 
-These are what I've planned. If you have any suggestions, please [raise an issue](https://github.com/benfreke/oc-menumanager-plugin/issues) on the plugin's [github repository](https://github.com/benfreke/oc-menumanager-plugin).
+**Currently 1.0.2**
 
 ### 1.0.2
 
-- Localise all files
+- Added active classes to component
+- Added ability to select a menu item other than the current page as the active item
+- Added ability to control depth of menu
 
-### 1.0.3
+### 1.0.1
 
-- Add active and active-parent classes to menu items depending on page location
-- Move all link and class creation into Model
-- Allow links to point at an external url
-- Add additional parameter to links to handle url filter options (such as a blog post)
+- Created backend area to manage menu items
+- Created backend area to re-order menu items
+- Created component to output menu in a page/partial/layout
 
-### 1.0.4
+## Roadmap
 
-- When a page/file location is changed, update any menus that link to it
+Please see the issues register, as I have put all my suggested improvements there.
 
-### 1.0.5
+These are what I've planned.
 
-- Display the page title on the Menu listing page, not just when updating a menu item
+## Documentation
 
-### 1.1.0
+## Available Options
 
-- Add ability to link to parts of the CMS that aren't pages
+- **Alias** - This is available to all components and is baked into OctoberCMS
+- **Parent Node** - The node to get the children of to create the menu. See the Parent Node section below for further information
+- **Active Node** - This is the active page. The default option is the current page, but you can manually set which menu item should be active.
+- **Primary Classes** - The classes to add to the parent ul tag. Defaults to "nav nav-pill"
+- **Secondary Classes** - The classes to add to the children ul tag. Defaults to "dropdown-menu"
+- **Tertiary Classes** - The classes to add to the grandchildren ul tag. Defaults to ""
+- **Depth** - How many levels of menu to display. The bootstrap default is 2, so if you do wish to show 3 levels please bear in mind you will need to add your own css to the theme to handle active states.
+
+## Adding the component to a Page
+
+When editing a page/partial/layout, add the component to the page as you would any other component
+
+```
+{% component "menu" %}
+```
+
+Inside the widget, you can set the menu class for both the primary and secondary navigation. You also set the parent node at this time.
+
+## Behind the scenes
+
+Menu Manager takes advantage of Nested Sets to allow quick traversal and drag and drop functionality. It also makes working out the active page and active parents super simple.
+
+By default no items are created. If you are developing, simply add the seed file back into the update file and run a `php artisan plugin:refresh` on the server to have some date pre-inserted.
+
+## The Parent Node
+
+This is the node from which the menu will be populated. The component will collect all the children of this node and create the menu content from these children nodes. For example, consider this default structure based loosely off the October CMS demo pages.
+
+    - Main Menu
+    -- Home
+    --- Plugin Components
+    --- Ajax Framework
+
+If we select "Main Menu" as the Parent Node, we will have 1 menu item visible. This will the title of "Home" and will be a bootstrap style dropdown navigation. Clicking on home will reveal 2 sub-menu items, "Plugin Components" and "Ajax Framework".
+
+If we select "Home" as the Parent Node, we will have 2 menu items visible, "Plugin Components" and "Ajax Framework".
+
+This allows the creation of side navigation relevant to the page you are currently on by re-using the same backend menu but having separate components on the page use different Parent Nodes to change the output.
+
+## Other
+
+If you have any suggestions, please [raise an issue](https://github.com/benfreke/oc-menumanager-plugin/issues) on the plugin's [github repository](https://github.com/benfreke/oc-menumanager-plugin).

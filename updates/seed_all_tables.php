@@ -30,14 +30,14 @@ class SeedAllTables extends Seeder
         // Secondary navigation
         $ajaxDemo = $homePage->children()->create(
             [
-                'title' => 'Demo Ajax',
+                'title' => 'Ajax Framework',
                 'description' => 'Secondary item 1',
                 'url' => 'ajax'
             ]
         );
         $homePage->children()->create(
             [
-                'title' => 'Demo Plugins',
+                'title' => 'Plugin Components',
                 'description' => 'Secondary item 2',
                 'url' => 'plugins'
             ]
@@ -45,7 +45,7 @@ class SeedAllTables extends Seeder
 
         $ajaxDemo->children()->create(
             [
-                'title' => 'Sub Link 1',
+                'title' => 'Menu titles do not',
                 'description' => 'Tertiary item 1',
                 'url' => ''
             ]
@@ -53,7 +53,7 @@ class SeedAllTables extends Seeder
 
         $ajaxDemo->children()->create(
             [
-                'title' => 'Sub Link 2',
+                'title' => 'Have to match page titles!',
                 'description' => 'Tertiary item 2',
                 'url' => ''
             ]

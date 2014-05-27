@@ -86,4 +86,13 @@ class Menu extends Model
         return $pages;
     }
 
+    /**
+     * Returns the class name so I can compare
+     *
+     * @return string
+     */
+    public static function getClassName()
+    {
+        return get_called_class();
+    }
 }
