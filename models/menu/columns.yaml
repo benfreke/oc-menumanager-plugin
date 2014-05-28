@@ -7,7 +7,7 @@ columns:
     label: Title
     searchable: true
   url:
-    label: File linked to
+    label: Page linked to
     searchable: true
     options: getUrlOptions
   description:

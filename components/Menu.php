@@ -23,7 +23,7 @@ class Menu extends ComponentBase
     public function defineProperties()
     {
         return [
-            'start'       => [
+            'start'            => [
                 'description' => 'The parent node to get the children of',
                 'title'       => 'Parent Node',
                 'default'     => 1,
@@ -91,26 +91,36 @@ class Menu extends ComponentBase
         return $options;
     }
 
+    /**
+     * Build all my parameters for the view
+     * @todo Pull as much as possible into the model, including the column names
+     */
     public function onRun()
     {
         // Set the parentNode for the component output
-        $topMenuId = $this->getIdFromProperty($this->property('start'));
-        $this->page['parentNode'] = menuModel::find($topMenuId);
+        $topNode                  = menuModel::find($this->getIdFromProperty($this->property('start')));
+        $this->page['parentNode'] = $topNode;
 
         // What page is active?
         $this->page['activeLeft']  = 0;
         $this->page['activeRight'] = 0;
         $activeNode                = $this->getIdFromProperty($this->property('activeNode'));
 
-        // Was a different node supplied or do I need to find the current page?
         if ($activeNode) {
+            // It's been set by the user, so use what they've set it as
             $activeNode = menuModel::find($activeNode);
         } else {
+            // Go and find the page we're on
             $baseFileName = $this->page->page->getBaseFileName();
-            $activeNode   = menuModel::where('url', $baseFileName)->first();
+
+            // And make sure the active page is a child of the parentNode
+            $activeNode = menuModel::where('url', $baseFileName)
+                ->where('nest_left', '>', $topNode->nest_left)
+                ->where('nest_right', '<', $topNode->nest_right)
+                ->first();
         }
 
-        // Everything is probably good, but let's make absolutely sure I don't throw any errors
+        // If I've got a result that is a
         if ($activeNode && menuModel::getClassName() === get_class($activeNode)) {
             $this->page['activeLeft']  = (int)$activeNode->nest_left;
             $this->page['activeRight'] = (int)$activeNode->nest_right;

@@ -7,7 +7,12 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.0.2**
+**Currently 1.0.3**
+
+### 1.0.3
+
+- Menu items no longer need to link anywhere
+- Ensured the active node must always be a child of the parent node
 
 ### 1.0.2
 
@@ -23,11 +28,9 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Roadmap
 
-Please see the issues register, as I have put all my suggested improvements there.
+Please see the [issues register](https://github.com/benfreke/oc-menumanager-plugin/issues), as I have put all my suggested improvements there.
 
-These are what I've planned.
-
-## Documentation
+# Documentation
 
 ## Available Options
 

@@ -77,10 +77,18 @@ class Menu extends Model
         return ['first', 'second'];
     }
 
+    /**
+     * Get a list of all pages. Prepend an empty option to the start
+     *
+     * @return array
+     */
     public function getUrlOptions()
     {
-        $pages = Page::sortBy('baseFileName')->lists('title', 'baseFileName');
-        foreach($pages as $key => $value) {
+        $allPages = Page::sortBy('baseFileName')->lists('title', 'baseFileName');
+        $pages = array(
+            '' => 'No page link'
+        );
+        foreach($allPages as $key => $value) {
             $pages[$key] = "{$value} - (File: $key)";
         }
         return $pages;

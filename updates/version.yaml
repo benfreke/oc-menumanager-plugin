@@ -3,3 +3,5 @@
   - create_menus_table.php
 1.0.2:
   - Added active state to menu; Added ability to select active menu item; Added controllable depth to component
+1.0.3:
+  - Made it possible for menu items to not link anywhere; Put a check in so the active node must be a child of the parentNode
