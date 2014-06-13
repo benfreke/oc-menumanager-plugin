@@ -12,6 +12,9 @@ use Cms\Classes\Page;
 class Menu extends Model
 {
 
+    // @todo find out why this is now inside the class
+    use \October\Rain\Database\Traits\NestedTree;
+
     /**
      * @var string The database table used by the model.
      */

@@ -7,7 +7,11 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.0.3**
+**Currently 1.0.4**
+
+### 1.0.4
+
+- Fixed bug where Nested Set traits needed to be included in the class, introduced by CMS upgrade
 
 ### 1.0.3
 
