@@ -41,7 +41,7 @@ Please see the [issues register](https://github.com/benfreke/oc-menumanager-plug
 - **Alias** - This is available to all components and is baked into OctoberCMS
 - **Parent Node** - The node to get the children of to create the menu. See the Parent Node section below for further information
 - **Active Node** - This is the active page. The default option is the current page, but you can manually set which menu item should be active.
-- **Primary Classes** - The classes to add to the parent ul tag. Defaults to "nav nav-pill"
+- **Primary Classes** - The classes to add to the parent ul tag. Defaults to "nav nav-pills"
 - **Secondary Classes** - The classes to add to the children ul tag. Defaults to "dropdown-menu"
 - **Tertiary Classes** - The classes to add to the grandchildren ul tag. Defaults to ""
 - **Depth** - How many levels of menu to display. The bootstrap default is 2, so if you do wish to show 3 levels please bear in mind you will need to add your own css to the theme to handle active states.
@@ -80,3 +80,8 @@ This allows the creation of side navigation relevant to the page you are current
 ## Other
 
 If you have any suggestions, please [raise an issue](https://github.com/benfreke/oc-menumanager-plugin/issues) on the plugin's [github repository](https://github.com/benfreke/oc-menumanager-plugin).
+
+## Thanks / Contributions
+
+- Obviously the OctoberCMS creators
+- [DanielHitchen](https://github.com/DanielHitchen) for bug reporting and enhancement requests/ideas.

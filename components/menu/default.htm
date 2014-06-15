@@ -2,18 +2,15 @@
 <ul class="{{ primaryClasses }}">
 
     {% for primaryNav in parentNode.getChildren %}
-    {% set liClass = '' %}
-    {% if primaryNav.nest_left <= activeLeft and primaryNav.nest_right >= activeRight %}
-    {% set liClass = 'active' %}
-    {% endif %}
+
     {% if primaryNav.getChildCount and numberOfLevels > 1 %}
-    <li class="dropdown {{ liClass }}">
-        <a href="{{ primaryNav.url|page }}" class="dropdown-toggle" data-toggle="dropdown">
+    <li class="dropdown {{ primaryNav.getListItemClasses(activeLeft, activeRight) }}">
+        <a href="{{ primaryNav.getLinkHref }}" class="dropdown-toggle" data-toggle="dropdown">
             {{ primaryNav.title }} <span class="caret"></span>
         </a>
         {% else %}
-    <li class="{{ liClass }}">
-        <a href="{{ primaryNav.url|page }}">
+    <li class="{{ primaryNav.getListItemClasses(activeLeft, activeRight) }}">
+        <a href="{{ primaryNav.getLinkHref }}">
             {{ primaryNav.title }}
         </a>
         {% endif %}
@@ -21,24 +18,16 @@
         {% if primaryNav.getChildCount and numberOfLevels > 1 %}
         <ul class="{{ secondaryClasses }}">
             {% for secondaryNav in primaryNav.getChildren %}
-            {% set liClass = '' %}
-            {% if secondaryNav.nest_left <= activeLeft and secondaryNav.nest_right >= activeRight %}
-            {% set liClass = 'active' %}
-            {% endif %}
-            <li class="{{ liClass }}">
-                <a href="{{ secondaryNav.url|page }}">
+            <li class="{{ secondaryNav.getListItemClasses(activeLeft, activeRight) }}">
+                <a href="{{ secondaryNav.getLinkHref }}">
                     {{ secondaryNav.title }}
                 </a>
 
                 {% if secondaryNav.getChildCount and numberOfLevels > 2 %}
                 <ul class="{{ tertiaryClasses }}">
                     {% for tertiaryNav in secondaryNav.getChildren %}
-                    {% set liClass = '' %}
-                    {% if tertiaryNav.nest_left <= activeLeft and tertiaryNav.nest_right >= activeRight %}
-                    {% set liClass = 'active' %}
-                    {% endif %}
-                    <li class="{{ liClass }}">
-                        <a href="{{ tertiaryNav.url|page }}">
+                    <li class="{{ tertiaryNav.getListItemClasses(activeLeft, activeRight) }}">
+                        <a href="{{ tertiaryNav.getLinkHref }}">
                             {{ tertiaryNav.title }}
                         </a>
                     </li>

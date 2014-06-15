@@ -1,10 +1,10 @@
 <?php namespace BenFreke\MenuManager\Models;
 
-
 use Model;
-use System\Classes\ApplicationException;
 use Lang;
 use Cms\Classes\Page;
+use Cms\Classes\Theme;
+use System\Classes\ApplicationException;
 
 /**
  * Menu Model
@@ -36,8 +36,6 @@ class Menu extends Model
     public $rules = [
         'title' => 'required'
     ];
-
-
 
     /**
      * @var array
@@ -105,5 +103,43 @@ class Menu extends Model
     public static function getClassName()
     {
         return get_called_class();
+    }
+
+    /**
+     * Returns the correct url for this menu item.
+     * It will either be the full page URL or '#' if no link was provided
+     *
+     * @return string
+     */
+    public function getLinkHref()
+    {
+        $url = '#';
+        if ($this->url) {
+            $url = Page::loadCached(Theme::getActiveTheme(), $this->url . '.htm')->url;
+        }
+        return $url;
+    }
+
+    /**
+     * Load the item classes here to keep the twig template clean
+     *
+     * @param int $leftIndex The left value of the active node
+     * @param int $rightIndex The right value of the active node
+     *
+     * @return string
+     *
+     * @todo Add dropdown class if the depth is right
+     */
+    public function getListItemClasses($leftIndex, $rightIndex)
+    {
+        $classes = array();
+
+        // Is this item active?
+        if ($this->nest_left <= $leftIndex && $this->nest_right >= $rightIndex) {
+            $classes[] = 'active';
+        }
+
+        // If not active, return an empty string
+        return implode(' ', $classes);
     }
 }

@@ -38,7 +38,7 @@ class Menu extends ComponentBase
             'primaryClasses'   => [
                 'description' => 'Classes to add to the primary ul tag',
                 'title'       => 'Primary Classes',
-                'default'     => 'nav nav-pill',
+                'default'     => 'nav nav-pills',
                 'type'        => 'string'
             ],
             'secondaryClasses' => [

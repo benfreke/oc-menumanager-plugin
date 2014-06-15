@@ -7,3 +7,5 @@
   - Made it possible for menu items to not link anywhere; Put a check in so the active node must be a child of the parentNode
 1.0.4:
   - Fixed bug where re-ordering stopped working
+1.0.5:
+  - Moved link creation code into the model in preperation for external links; Brought list item class creation into the model; Fixed typo with default menu class
