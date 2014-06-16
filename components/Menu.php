@@ -107,23 +107,23 @@ class Menu extends ComponentBase
         $activeNode                = $this->getIdFromProperty($this->property('activeNode'));
 
         if ($activeNode) {
+
             // It's been set by the user, so use what they've set it as
             $activeNode = menuModel::find($activeNode);
-        } else {
+
+        } elseif ($topNode) {
+
             // Go and find the page we're on
             $baseFileName = $this->page->page->getBaseFileName();
 
             // And make sure the active page is a child of the parentNode
-            if ($topNode) {
-                $activeNode = menuModel::where('url', $baseFileName)
-                    ->where('nest_left', '>', $topNode->nest_left)
-                    ->where('nest_right', '<', $topNode->nest_right)
-                    ->first();
-            }
-            
+            $activeNode = menuModel::where('url', $baseFileName)
+                ->where('nest_left', '>', $topNode->nest_left)
+                ->where('nest_right', '<', $topNode->nest_right)
+                ->first();
         }
 
-        // If I've got a result that is a
+        // If I've got a result that is a node
         if ($activeNode && menuModel::getClassName() === get_class($activeNode)) {
             $this->page['activeLeft']  = (int)$activeNode->nest_left;
             $this->page['activeRight'] = (int)$activeNode->nest_right;
@@ -154,6 +154,5 @@ class Menu extends ComponentBase
         }
         return substr($value, 3);
     }
-
 
 }
