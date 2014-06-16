@@ -12,7 +12,6 @@ use System\Classes\ApplicationException;
 class Menu extends Model
 {
 
-    // @todo find out why this is now inside the class
     use \October\Rain\Database\Traits\NestedTree;
 
     /**
@@ -36,11 +35,6 @@ class Menu extends Model
     public $rules = [
         'title' => 'required'
     ];
-
-    /**
-     * @var array
-     */
-    public $implement = ['October.Rain.Database.Behaviors.NestedSetModel'];
 
     /**
      * Returns the list of menu items, where the key is the id and the value is the title, indented with '-' for depth
