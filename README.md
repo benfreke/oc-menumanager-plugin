@@ -7,7 +7,13 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.0.5**
+**Currently 1.0.6**
+
+### 1.0.6
+
+- Removed NestedSetModel
+- Added NestedTree trait, thanks @daftspunk
+- Fixed bug when no menus set, thanks @danielhitchens
 
 ### 1.0.5
 
@@ -89,5 +95,6 @@ If you have any suggestions, please [raise an issue](https://github.com/benfreke
 
 ## Thanks / Contributions
 
-- Obviously the OctoberCMS creators
+- Obviously the [OctoberCMS](http://octobercms.com/) creators, [Samuel Georges](https://github.com/daftspunk) and [Aleksey Bobkov](https://github.com/alekseybobkov)
 - [DanielHitchen](https://github.com/DanielHitchen) for bug reporting and enhancement requests/ideas.
+- [Adis](https://github.com/adisos) for help with the 1.1.x releases
