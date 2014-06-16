@@ -12,7 +12,6 @@ use System\Classes\ApplicationException;
 class Menu extends Model
 {
 
-    // @todo find out why this is now inside the class
     use \October\Rain\Database\Traits\NestedTree;
 
     /**
@@ -36,11 +35,6 @@ class Menu extends Model
     public $rules = [
         'title' => 'required'
     ];
-
-    /**
-     * @var array
-     */
-    public $implement = ['October.Rain.Database.Behaviors.NestedSetModel'];
 
     /**
      * Returns the list of menu items, where the key is the id and the value is the title, indented with '-' for depth
@@ -114,10 +108,28 @@ class Menu extends Model
     public function getLinkHref()
     {
         $url = '#';
+
         if ($this->url) {
-            $url = Page::loadCached(Theme::getActiveTheme(), $this->url . '.htm')->url;
-        }
+            if (!$this->is_external) {
+                $url = Page::loadCached(Theme::getActiveTheme(), $this->url . '.htm')->url;
+            } else {
+                $url = $this->url;
+            }
+        }        
+        
         return $url;
+    }
+
+    /**
+     * Returns the correct url for this menu item.
+     * It will either be the full page URL or '#' if no link was provided
+     *
+     * @return string
+     */
+    public function getLinkTarget()
+    {
+        
+        return $this->link_target ?: '_self';
     }
 
     /**

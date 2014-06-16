@@ -7,13 +7,7 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.0.5**
-
-### 1.0.5
-
-- Moved link creation code into the model in preperation for external links coming in 1.1.0
-- Brought list item class creation into the model
-- Fixed typo with default menu class so it will display as pills
+**Currently 1.0.4**
 
 ### 1.0.4
 

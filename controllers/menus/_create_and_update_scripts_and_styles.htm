@@ -1,0 +1,27 @@
+<style type="text/css">
+    .url-form-group {
+        display: none;
+    }    
+</style>
+<script type="text/javascript">
+    jQuery(function($) {
+        var $menu_type = $('.is_external-form-group input');
+
+        $('.internal_url-form-group').hide();
+        $('.external_url-form-group').hide();
+
+        $menu_type.change(function() {
+            console.log(this.value);
+            var is_external = this.value;
+            if (is_external === '1') {
+                $('.external_url-form-group').show();
+                $('.internal_url-form-group').hide();
+            } else if(is_external === '0') {
+                $('.internal_url-form-group').show();
+                $('.external_url-form-group').hide();
+            }
+        });
+
+        $menu_type.filter(':checked').trigger('change');
+    })
+</script>
