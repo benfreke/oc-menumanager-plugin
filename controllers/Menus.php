@@ -71,6 +71,9 @@ class Menus extends Controller
 
     /**
      * As external_url and internal_url doesn't exist in database, we need fill with url value.
+     *
+     * @param $host
+     *
      * @return void
      */
     public function formExtendFields($host)
@@ -89,7 +92,6 @@ class Menus extends Controller
     {
         // Ensure the correct sidemenu is active
         BackendMenu::setContext('BenFreke.MenuManager', 'menumanager', 'reorder');
-
 
         $this->pageTitle = 'Reorder Menu';
 
