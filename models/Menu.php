@@ -108,10 +108,26 @@ class Menu extends Model
     public function getLinkHref()
     {
         $url = '#';
+
         if ($this->url) {
-            $url = Page::loadCached(Theme::getActiveTheme(), $this->url . '.htm')->url;
-        }
+            if (!$this->is_external) {
+                $url = Page::loadCached(Theme::getActiveTheme(), $this->url . '.htm')->url;
+            } else {
+                $url = $this->url;
+            }
+        }        
+        
         return $url;
+    }
+
+    /**
+     * Sets the target attribute for the link
+     *
+     * @return string
+     */
+    public function getLinkTarget()
+    {
+        return $this->link_target ?: '_self';
     }
 
     /**

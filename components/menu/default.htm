@@ -5,12 +5,12 @@
 
     {% if primaryNav.getChildCount and numberOfLevels > 1 %}
     <li class="dropdown {{ primaryNav.getListItemClasses(activeLeft, activeRight) }}">
-        <a href="{{ primaryNav.getLinkHref }}" class="dropdown-toggle" data-toggle="dropdown">
+        <a href="{{ primaryNav.getLinkHref }}" target="{{ primaryNav.getLinkTarget }}" class="dropdown-toggle" data-toggle="dropdown">
             {{ primaryNav.title }} <span class="caret"></span>
         </a>
         {% else %}
     <li class="{{ primaryNav.getListItemClasses(activeLeft, activeRight) }}">
-        <a href="{{ primaryNav.getLinkHref }}">
+        <a href="{{ primaryNav.getLinkHref }}" target="{{ primaryNav.getLinkTarget }}">
             {{ primaryNav.title }}
         </a>
         {% endif %}
@@ -19,7 +19,7 @@
         <ul class="{{ secondaryClasses }}">
             {% for secondaryNav in primaryNav.getChildren %}
             <li class="{{ secondaryNav.getListItemClasses(activeLeft, activeRight) }}">
-                <a href="{{ secondaryNav.getLinkHref }}">
+                <a href="{{ secondaryNav.getLinkHref }}" target="{{ secondaryNav.getLinkTarget }}">
                     {{ secondaryNav.title }}
                 </a>
 
@@ -27,7 +27,7 @@
                 <ul class="{{ tertiaryClasses }}">
                     {% for tertiaryNav in secondaryNav.getChildren %}
                     <li class="{{ tertiaryNav.getListItemClasses(activeLeft, activeRight) }}">
-                        <a href="{{ tertiaryNav.getLinkHref }}">
+                        <a href="{{ tertiaryNav.getLinkHref }}" target="{{ tertiaryNav.getLinkTarget }}">
                             {{ tertiaryNav.title }}
                         </a>
                     </li>
