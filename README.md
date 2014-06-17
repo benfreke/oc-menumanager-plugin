@@ -14,10 +14,11 @@ A component is included to output the menu in pages/partials/layout. It can incl
 - Added ability to enable/disable individual menu links
 - Added ability for url parameters &amp; query string
 - Fixed issue of "getLinkHref()" pulling through full page url with parameters rather than the ACTUAL page url
+- All these changes are courtesy of [@DanielHitchen](https://github.com/DanielHitchen)
 
 ### 1.1.0
 
-- Added ability to link to external sites. Thanks @adisos
+- Added ability to link to external sites. Thanks [Adis](https://github.com/adisos)
 
 ### 1.0.6
 
@@ -106,6 +107,6 @@ If you have any suggestions, please [raise an issue](https://github.com/benfreke
 ## Thanks / Contributions
 
 - Obviously the [OctoberCMS](http://octobercms.com/) creators, [Samuel Georges](https://github.com/daftspunk) and [Aleksey Bobkov](https://github.com/alekseybobkov)
-- [DanielHitchen](https://github.com/DanielHitchen) for bug reporting and enhancement requests/ideas.
+- [DanielHitchen](https://github.com/DanielHitchen) for bug reporting, enhancements and requests/ideas
 - [Adis](https://github.com/adisos) for help with the 1.1.x releases
 
