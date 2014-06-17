@@ -109,6 +109,8 @@ class Menu extends Model
      * Returns the correct url for this menu item.
      * It will either be the full page URL or '#' if no link was provided
      *
+     * @param bool $routePersistence
+     *
      * @return string
      */
     public function getLinkHref($routePersistence = true)
