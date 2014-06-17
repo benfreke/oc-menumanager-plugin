@@ -7,7 +7,13 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.1.0**
+**Currently 1.1.1**
+
+### 1.1.1
+
+- Added ability to enable/disable individual menu links
+- Added ability for url parameters &amp; query string
+- Fixed issue of "getLinkHref()" pulling through full page url with parameters rather than the ACTUAL page url
 
 ### 1.1.0
 
