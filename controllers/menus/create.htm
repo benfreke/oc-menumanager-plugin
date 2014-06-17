@@ -1,3 +1,7 @@
+<?php Block::put('head') ?>
+    <?= $this->makePartial('create_and_update_scripts_and_styles') ?>
+<!-- I don't know why, but if leave space between 'endPut' and next 'put' then layout breaks up -->
+<?php Block::endPut(true); ?>
 <?php Block::put('breadcrumb') ?>
     <ul>
         <li><a href="<?= Backend::url('benfreke/menumanager/menus') ?>">Menus</a></li>

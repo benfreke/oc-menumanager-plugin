@@ -3,11 +3,35 @@
 # ===================================
 
 fields:
-  title:
-    label: Title
-  url:
-    label: File to link To
-    type: dropdown
-    options: getUrlOptions
-  description:
-    label: Purpose/Description (optional)
+    title:
+        label: Title
+    is_external:
+        label: Menu type
+        type: radio
+        options:
+            0: Internal
+            1: External
+        default: 0
+        cssClass: is_external-form-group
+    internal_url:
+        label: File to link To
+        type: dropdown
+        options: getUrlOptions
+        cssClass: internal_url-form-group
+    external_url:
+        label: Url
+        placeholder: Type external url
+        cssClass: external_url-form-group
+        comment: ex: http://example.com
+    url:
+        label: Url
+        cssClass: url-form-group
+    link_target:
+        label: Open link in
+        type: radio
+        options:
+            _self: In the same tab
+            _blank: In new tab            
+        default: _self
+    description:
+        label: Purpose/Description (optional)
