@@ -6,10 +6,17 @@ columns:
   title:
     label: Title
     searchable: true
+  enabled:
+    type: switch
   url:
     label: Page linked to
     searchable: true
     options: getUrlOptions
+  parameters:
+    searchable: true
+  query_string:
+    label: Query String
+    searchable: true
   description:
     label: Description
     searchable: true
