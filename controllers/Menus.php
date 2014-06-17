@@ -50,7 +50,7 @@ class Menus extends Controller
     public function update_onSave($recordId = null)
     {
         $this->modifyPost();
-        $this->getClassExtension('Backend.Behaviors.FormController')->update_onSave($recordId);
+        return $this->getClassExtension('Backend.Behaviors.FormController')->update_onSave($recordId);
     }
 
     /**
@@ -60,7 +60,7 @@ class Menus extends Controller
     public function create_onSave()
     {        
         $this->modifyPost();
-        $this->getClassExtension('Backend.Behaviors.FormController')->create_onSave();
+        return $this->getClassExtension('Backend.Behaviors.FormController')->create_onSave();
     }
     /**
      * As external_url and internal_url doesn't exist in database, we need fill with url value.
