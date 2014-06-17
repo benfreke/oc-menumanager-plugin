@@ -3,42 +3,73 @@
 
     {% for primaryNav in parentNode.getChildren %}
 
-    {% if primaryNav.getChildCount and numberOfLevels > 1 %}
-    <li class="dropdown {{ primaryNav.getListItemClasses(activeLeft, activeRight) }}">
-        <a href="{{ primaryNav.getLinkHref }}" target="{{ primaryNav.getLinkTarget }}" class="dropdown-toggle" data-toggle="dropdown">
-            {{ primaryNav.title }} <span class="caret"></span>
-        </a>
-        {% else %}
-    <li class="{{ primaryNav.getListItemClasses(activeLeft, activeRight) }}">
-        <a href="{{ primaryNav.getLinkHref }}" target="{{ primaryNav.getLinkTarget }}">
-            {{ primaryNav.title }}
-        </a>
-        {% endif %}
+        {% if primaryNav.enabled %}
 
-        {% if primaryNav.getChildCount and numberOfLevels > 1 %}
-        <ul class="{{ secondaryClasses }}">
-            {% for secondaryNav in primaryNav.getChildren %}
-            <li class="{{ secondaryNav.getListItemClasses(activeLeft, activeRight) }}">
-                <a href="{{ secondaryNav.getLinkHref }}" target="{{ secondaryNav.getLinkTarget }}">
-                    {{ secondaryNav.title }}
-                </a>
 
-                {% if secondaryNav.getChildCount and numberOfLevels > 2 %}
-                <ul class="{{ tertiaryClasses }}">
-                    {% for tertiaryNav in secondaryNav.getChildren %}
-                    <li class="{{ tertiaryNav.getListItemClasses(activeLeft, activeRight) }}">
-                        <a href="{{ tertiaryNav.getLinkHref }}" target="{{ tertiaryNav.getLinkTarget }}">
-                            {{ tertiaryNav.title }}
-                        </a>
-                    </li>
+            {% if primaryNav.getChildCount and numberOfLevels > 1 %}
+        
+                <li class="dropdown {{ primaryNav.getListItemClasses(activeLeft, activeRight) }}">
+                    <a href="{{ primaryNav.getLinkHref }}" target="{{ primaryNav.getLinkTarget }}" class="dropdown-toggle" data-toggle="dropdown">
+                        {{ primaryNav.title }} <span class="caret"></span>
+                    </a>
+
+            {% else %}
+
+                <li class="{{ primaryNav.getListItemClasses(activeLeft, activeRight) }}">
+                    <a href="{{ primaryNav.getLinkHref }}" target="{{ primaryNav.getLinkTarget }}">
+                        {{ primaryNav.title }}
+                    </a>
+            {% endif %}
+
+            {% if primaryNav.getChildCount and numberOfLevels > 1 %}
+
+                <ul class="{{ secondaryClasses }}">
+
+                    {% for secondaryNav in primaryNav.getChildren %}
+
+                        {% if secondaryNav.enabled %}
+
+                            <li class="{{ secondaryNav.getListItemClasses(activeLeft, activeRight) }}">
+                                <a href="{{ secondaryNav.getLinkHref }}" target="{{ secondaryNav.getLinkTarget }}">
+                                    {{ secondaryNav.title }}
+                                </a>
+
+                                {% if secondaryNav.getChildCount and numberOfLevels > 2 %}
+
+                                    <ul class="{{ tertiaryClasses }}">
+            
+                                        {% for tertiaryNav in secondaryNav.getChildren %}
+
+                                            {% if tertiaryNav.enabled %}
+                                        
+                                                <li class="{{ tertiaryNav.getListItemClasses(activeLeft, activeRight) }}">
+                                                    <a href="{{ tertiaryNav.getLinkHref }}" target="{{ tertiaryNav.getLinkTarget }}">
+                                                        {{ tertiaryNav.title }}
+                                                    </a>
+                                                </li>
+
+                                            {% endif %}
+                                        
+                                        {% endfor %}
+                                    
+                                    </ul>
+                                
+                                {% endif %}
+                            
+                            </li>
+
+                        {% endif %}
+                    
                     {% endfor %}
+                
                 </ul>
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
+            
+            {% endif %}
+            
+                </li>
+
         {% endif %}
-    </li>
+        
     {% endfor %}
 </ul>
 {% endif %}

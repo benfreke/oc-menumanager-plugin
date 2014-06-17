@@ -4,6 +4,7 @@ use Model;
 use Lang;
 use Cms\Classes\Page;
 use Cms\Classes\Theme;
+use Cms\Classes\Controller as BaseController;
 use System\Classes\ApplicationException;
 
 /**
@@ -13,6 +14,11 @@ class Menu extends Model
 {
 
     use \October\Rain\Database\Traits\NestedTree;
+
+    /**
+     * @var \Cms\Classes\Controller A reference to the CMS controller.
+     */
+    private $controller;
 
     /**
      * @var string The database table used by the model.
@@ -105,19 +111,23 @@ class Menu extends Model
      *
      * @return string
      */
-    public function getLinkHref()
+    public function getLinkHref($routePersistence = true)
     {
+        $this->controller = new BaseController;
+
         $url = '#';
+
+        $parameters = (array) json_decode( $this->parameters );
 
         if ($this->url) {
             if (!$this->is_external) {
-                $url = Page::loadCached(Theme::getActiveTheme(), $this->url . '.htm')->url;
+                $url = $this->controller->pageUrl( $this->url, $parameters, $routePersistence );
             } else {
                 $url = $this->url;
             }
-        }        
-        
-        return $url;
+        } 
+
+        return $url . $this->query_string;
     }
 
     /**
