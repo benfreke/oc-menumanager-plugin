@@ -8,7 +8,7 @@
 1.0.4:
   - Fixed bug where re-ordering stopped working
 1.0.5:
-  - Moved link creation code into the model in preperation for external links; Brought list item class creation into the model; Fixed typo with default menu class
+  - Moved link creation code into the model in preparation for external links; Brought list item class creation into the model; Fixed typo with default menu class
 1.1.0:
   - Added ability to link to external sites
   - add_is_external_field.php

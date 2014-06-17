@@ -27,7 +27,7 @@
                 <ul class="{{ tertiaryClasses }}">
                     {% for tertiaryNav in secondaryNav.getChildren %}
                     <li class="{{ tertiaryNav.getListItemClasses(activeLeft, activeRight) }}">
-                        <a href="{{ tertiaryNav.getLinkHref }}" target="{{ secondaryNav.getLinkTarget }}">
+                        <a href="{{ tertiaryNav.getLinkHref }}" target="{{ tertiaryNav.getLinkTarget }}">
                             {{ tertiaryNav.title }}
                         </a>
                     </li>

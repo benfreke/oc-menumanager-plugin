@@ -121,14 +121,12 @@ class Menu extends Model
     }
 
     /**
-     * Returns the correct url for this menu item.
-     * It will either be the full page URL or '#' if no link was provided
+     * Sets the target attribute for the link
      *
      * @return string
      */
     public function getLinkTarget()
     {
-        
         return $this->link_target ?: '_self';
     }
 

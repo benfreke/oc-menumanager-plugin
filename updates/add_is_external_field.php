@@ -10,7 +10,7 @@ class AddIsExternalField extends Migration
     {
         Schema::table('benfreke_menumanager_menus', function($table)
         {
-            $table->boolean('is_external');
+            $table->boolean('is_external')->default(false);
         });
     }
 

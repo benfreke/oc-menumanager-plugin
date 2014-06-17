@@ -28,7 +28,11 @@ class Menus extends Controller
         BackendMenu::setContext('BenFreke.MenuManager', 'menumanager', 'edit');
     }
 
-    private function modifyPost() {
+    /**
+     * Ensures the correct URL value is saved to the model
+     */
+    protected function modifyPost()
+    {
         $new_post_data = post();
 
         if (post('Menu')['is_external'] == "1") {
@@ -44,7 +48,9 @@ class Menus extends Controller
 
     /**
      * Ajax handler for updating the form.
+     *
      * @param int $recordId The model primary key to update.
+     *
      * @return mixed
      */
     public function update_onSave($recordId = null)
@@ -54,19 +60,21 @@ class Menus extends Controller
     }
 
     /**
-     * Overrided ajax handler for saving from the creation form. 
+     * Overrided ajax handler for saving from the creation form.
      * @return mixed
      */
     public function create_onSave()
-    {        
+    {
         $this->modifyPost();
         return $this->getClassExtension('Backend.Behaviors.FormController')->create_onSave();
     }
+
     /**
      * As external_url and internal_url doesn't exist in database, we need fill with url value.
      * @return void
      */
-    public function formExtendFields($host) {
+    public function formExtendFields($host)
+    {
         if ($host->allFields['is_external']->value == 1) {
             $host->allFields['external_url']->value = $host->allFields['url']->value;
         } else {

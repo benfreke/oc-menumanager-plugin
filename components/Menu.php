@@ -117,12 +117,10 @@ class Menu extends ComponentBase
             $baseFileName = $this->page->page->getBaseFileName();
 
             // And make sure the active page is a child of the parentNode
-            if ($topNode) {
-                $activeNode = menuModel::where('url', $baseFileName)
-                    ->where('nest_left', '>', $topNode->nest_left)
-                    ->where('nest_right', '<', $topNode->nest_right)
-                    ->first();
-            }
+            $activeNode = menuModel::where('url', $baseFileName)
+                ->where('nest_left', '>', $topNode->nest_left)
+                ->where('nest_right', '<', $topNode->nest_right)
+                ->first();
         }
 
         // If I've got a result that is a node

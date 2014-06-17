@@ -10,7 +10,7 @@ class AddLinkTargetField extends Migration
     {
         Schema::table('benfreke_menumanager_menus', function($table)
         {
-            $table->string('link_target');
+            $table->string('link_target')->default('_self');
         });
     }
 
