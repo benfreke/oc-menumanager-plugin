@@ -73,11 +73,6 @@ class Menu extends Model
         return $this->getDepthIndicators( --$depth, $indicators . '-' );
     }
 
-    public function getPageList()
-    {
-        return ['first', 'second'];
-    }
-
     /**
      * Get a list of all pages. Prepend an empty option to the start
      *
