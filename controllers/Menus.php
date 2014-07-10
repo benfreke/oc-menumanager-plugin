@@ -26,6 +26,9 @@ class Menus extends Controller
         parent::__construct();
 
         BackendMenu::setContext('BenFreke.MenuManager', 'menumanager', 'edit');
+
+        // Add my assets
+        $this->addJs('/plugins/benfreke/menumanager/assets/js/benfreke.menumanager.js');
     }
 
     /**
@@ -78,10 +81,15 @@ class Menus extends Controller
      */
     public function formExtendFields($host)
     {
-        if ($host->allFields['is_external']->value == 1) {
-            $host->allFields['external_url']->value = $host->allFields['url']->value;
-        } else {
-            $host->allFields['internal_url']->value = $host->allFields['url']->value;
+        switch ($host->allFields['is_external']->value) {
+            case 0:
+                $host->allFields['internal_url']->value = $host->allFields['url']->value;
+                break;
+            case 1:
+                $host->allFields['external_url']->value = $host->allFields['url']->value;
+                break;
+            default:
+                break;
         }
     }
 

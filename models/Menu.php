@@ -12,7 +12,6 @@ use System\Classes\ApplicationException;
  */
 class Menu extends Model
 {
-
     use \October\Rain\Database\Traits\NestedTree;
 
     /**
@@ -48,10 +47,10 @@ class Menu extends Model
      */
     public function getSelectList()
     {
-        $items = $this->getAll();
+        $items  = $this->getAll();
         $output = array();
-        foreach($items as $item) {
-            $depthIndicator = $this->getDepthIndicators($item->nest_depth);
+        foreach ($items as $item) {
+            $depthIndicator         = $this->getDepthIndicators($item->nest_depth);
             $output["id-$item->id"] = $depthIndicator . ' ' . $item->title;
         }
         return $output;
@@ -65,12 +64,12 @@ class Menu extends Model
      *
      * @return string
      */
-    protected function getDepthIndicators( $depth = 0, $indicators = '' )
+    protected function getDepthIndicators($depth = 0, $indicators = '')
     {
-        if ( $depth < 1 ) {
+        if ($depth < 1) {
             return $indicators;
         }
-        return $this->getDepthIndicators( --$depth, $indicators . '-' );
+        return $this->getDepthIndicators(--$depth, $indicators . '-');
     }
 
     /**
@@ -81,10 +80,10 @@ class Menu extends Model
     public function getUrlOptions()
     {
         $allPages = Page::sortBy('baseFileName')->lists('title', 'baseFileName');
-        $pages = array(
+        $pages    = array(
             '' => 'No page link'
         );
-        foreach($allPages as $key => $value) {
+        foreach ($allPages as $key => $value) {
             $pages[$key] = "{$value} - (File: $key)";
         }
         return $pages;
@@ -114,17 +113,21 @@ class Menu extends Model
 
         $url = '#';
 
-        $parameters = (array) json_decode( $this->parameters );
+        $parameters = (array)json_decode($this->parameters);
 
         if ($this->url) {
             if (!$this->is_external) {
-                $url = $this->controller->pageUrl( $this->url, $parameters, $routePersistence );
+                $url = $this->controller->pageUrl($this->url, $parameters, $routePersistence);
             } else {
                 $url = $this->url;
             }
-        } 
+        }
 
-        return $url . $this->query_string;
+        if (!empty($this->query_string)) {
+            $url .= '?' . $this->query_string;
+        }
+
+        return $url;
     }
 
     /**
@@ -134,13 +137,13 @@ class Menu extends Model
      */
     public function getLinkTarget()
     {
-        return $this->link_target ?: '_self';
+        return $this->link_target ? : '_self';
     }
 
     /**
      * Load the item classes here to keep the twig template clean
      *
-     * @param int $leftIndex The left value of the active node
+     * @param int $leftIndex  The left value of the active node
      * @param int $rightIndex The right value of the active node
      *
      * @return string

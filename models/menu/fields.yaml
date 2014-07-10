@@ -5,47 +5,58 @@
 fields:
     title:
         label: Title
+        span: left
+    description:
+        label: Purpose/Description (optional)
+        span: right
     enabled:
         label: Enable/disable this link
-        type: switch
+        type: radio
+        options:
+            0: Disabled
+            1: Enabled
         default: 1
+        span: left
     is_external:
         label: Menu type
-        type: radio
+        type: dropdown
+        placeholder: -- Select Menu Type --
         options:
             0: Internal
             1: External
         default: 0
-        cssClass: is_external-form-group
+        cssClass: menumanager-type-controller
+        span: left
     internal_url:
         label: File to link To
         type: dropdown
+        placeholder: -- Select File to link to --
         options: getUrlOptions
-        cssClass: internal_url-form-group
-    parameters:
-        label: Extra URL parameters (JSON) e.g if URL uses "/:slug"
-        commentAbove: "{ 'slug' : 'my-page-slug' }"
-        type: codeeditor
-        size: tiny
+        cssClass: menumanager-type type-0
+        span: right
     external_url:
         label: Url
         placeholder: Type external url
-        cssClass: external_url-form-group
-        comment: ex: http://example.com
-    url:
-        label: Url
-        cssClass: url-form-group
+        cssClass: menumanager-type type-1
+        comment: e.g. http://example.com
+        span: right
     link_target:
         label: Open link in
         type: radio
         options:
             _self: In the same tab
-            _blank: In new tab            
+            _blank: In new tab
         default: _self
+    parameters:
+        label: Extra URL parameters (JSON) e.g if URL uses "/:slug"
+        commentAbove: "{ 'slug' : 'my-page-slug' }"
+        type: text
+        size: tiny
     query_string:
         label: Extra non-OctoberCMS query string parameters (will be appended to end of URL)
-        commentAbove: e.g "?param1=foo&param2=bar"
-        type: codeeditor
+        commentAbove: e.g "param1=foo&param2=bar"
+        type: text
         size: tiny
-    description:
-        label: Purpose/Description (optional)
+    url:
+        label: URL
+        cssClass: hidden

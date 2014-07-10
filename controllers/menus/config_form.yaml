@@ -16,15 +16,18 @@ defaultRedirect: benfreke/menumanager/menus
 
 # Create page
 create:
-    title: Create Menus
+    title: Create a Menu item
     redirect: benfreke/menumanager/menus/update/:id
     redirectClose: benfreke/menumanager/menus
+    flash-save: Menu has been created
 
 # Update page
 update:
-    title: Edit Menus
+    title: Edit a Menu item
     redirect: benfreke/menumanager/menus
     redirectClose: benfreke/menumanager/menus
+    flash-save: Menu updated
+    flash-delete: Menu deleted
 
 # Preview page
 preview:
