@@ -7,7 +7,15 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.1.1**
+**Currently 1.1.2**
+
+### 1.1.2
+
+- Reformatted admin interface to make more sense (possibly just to me ...)
+- Removed CSS and JS partial, and replaced with an asset JS file
+- Added escaping to any query string values used on a menu item
+- Small updates to text to make more sense
+- Reformatted some functions for future enhancements
 
 ### 1.1.1
 

@@ -53,8 +53,8 @@ fields:
         type: text
         size: tiny
     query_string:
-        label: Extra non-OctoberCMS query string parameters (will be appended to end of URL)
-        commentAbove: e.g "param1=foo&param2=bar"
+        label: Extra non-OctoberCMS query string parameters (they will be automatically escaped)
+        commentAbove: e.g "param1=foo&param2=http://www.google.com"
         type: text
         size: tiny
     url:

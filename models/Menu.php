@@ -124,10 +124,31 @@ class Menu extends Model
         }
 
         if (!empty($this->query_string)) {
-            $url .= '?' . $this->query_string;
+            $url .= '?' . $this->createQueryString($this->query_string);
         }
 
         return $url;
+    }
+
+    /**
+     * Never trust user input, so let's fix up the query string
+     *
+     * @param $rawString
+     *
+     * @return string
+     */
+    protected function createQueryString($rawString)
+    {
+        // Remove the first character if it is a ?
+        if (substr($rawString, 0, 1) === '?') {
+            $rawString = substr($rawString, 1);
+        }
+
+        // Convert to the individual params
+        parse_str($rawString, $queryParams);
+
+        // Build the query string and return it
+        return http_build_query($queryParams);
     }
 
     /**
