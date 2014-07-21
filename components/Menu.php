@@ -95,7 +95,7 @@ class Menu extends ComponentBase
      * Build all my parameters for the view
      * @todo Pull as much as possible into the model, including the column names
      */
-    public function onRun()
+    public function onRender()
     {
         // Set the parentNode for the component output
         $topNode                  = menuModel::find($this->getIdFromProperty($this->property('start')));
