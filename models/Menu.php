@@ -13,6 +13,7 @@ use System\Classes\ApplicationException;
 class Menu extends Model
 {
     use \October\Rain\Database\Traits\NestedTree;
+    use \October\Rain\Database\Traits\Validation;
 
     /**
      * @var \Cms\Classes\Controller A reference to the CMS controller.
