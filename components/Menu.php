@@ -35,6 +35,12 @@ class Menu extends ComponentBase
                 'default'     => 0,
                 'type'        => 'dropdown'
             ],
+            'listItemClasses'   => [
+                'description' => 'Classes to add to the li tag',
+                'title'       => 'List Item Classes',
+                'default'     => 'item',
+                'type'        => 'string'
+            ], 
             'primaryClasses'   => [
                 'description' => 'Classes to add to the primary ul tag',
                 'title'       => 'Primary Classes',
@@ -136,6 +142,7 @@ class Menu extends ComponentBase
         $this->page['primaryClasses']   = $this->property('primaryClasses');
         $this->page['secondaryClasses'] = $this->property('secondaryClasses');
         $this->page['tertiaryClasses']  = $this->property('tertiaryClasses');
+        $this->page['listItemClasses']  = $this->property('listItemClasses');
     }
 
     /**
