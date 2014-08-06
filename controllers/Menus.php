@@ -81,12 +81,13 @@ class Menus extends Controller
      */
     public function formExtendFields($host)
     {
-        switch ($host->allFields['is_external']->value) {
+        $allFields = $host->getFields();
+        switch ($allFields['is_external']->value) {
             case 0:
-                $host->allFields['internal_url']->value = $host->allFields['url']->value;
+                $allFields['internal_url']->value = $allFields['url']->value;
                 break;
             case 1:
-                $host->allFields['external_url']->value = $host->allFields['url']->value;
+                $allFields['external_url']->value = $allFields['url']->value;
                 break;
             default:
                 break;
