@@ -22,3 +22,5 @@
   - Reformatted code for better maintainability and better practises
 1.1.3:
   - Fixed bug that prevented multiple components displaying
+1.2.0:
+  - Fixed validation and fields bug; Added list classes
