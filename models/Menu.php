@@ -26,6 +26,11 @@ class Menu extends Model
     public $table = 'benfreke_menumanager_menus';
 
     /**
+     * @var array Translatable fields
+     */
+    public $translatable = ['title', 'description'];
+
+    /**
      * @var array Guarded fields
      */
     protected $guarded = ['*'];
@@ -41,6 +46,28 @@ class Menu extends Model
     public $rules = [
         'title' => 'required'
     ];
+    
+     /**
+     * Add translation support to this model, if available.
+     * @return void
+     */
+    public static function boot()
+    {
+        // Call default functionality (required)
+        parent::boot();
+
+        // Check the translate plugin is installed
+        if (!class_exists('RainLab\Translate\Behaviors\TranslatableModel'))
+            return;
+
+        // Extend the constructor of the model
+        self::extend(function($model){
+
+            // Implement the translatable behavior
+            $model->implement[] = 'RainLab.Translate.Behaviors.TranslatableModel';
+
+        });
+    }
 
     /**
      * Returns the list of menu items, where the key is the id and the value is the title, indented with '-' for depth
