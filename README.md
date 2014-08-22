@@ -7,7 +7,11 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.2.0**
+**Currently 1.3.0**
+
+### 1.3.0
+
+- Added translations
 
 ### 1.2.0
 
