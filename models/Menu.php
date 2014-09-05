@@ -44,9 +44,10 @@ class Menu extends Model
      * @var array Validation rules
      */
     public $rules = [
-        'title' => 'required'
+        'title' => 'required',
+        'parameters' => ['regex:/^("(\\.|[^"\\\n\r])*?"|[,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t])+?$/']
     ];
-    
+
      /**
      * Add translation support to this model, if available.
      * @return void
@@ -210,5 +211,14 @@ class Menu extends Model
 
         // If not active, return an empty string
         return implode(' ', $classes);
+    }
+
+    /**
+     * Format json
+     */
+    public function beforeSave() {
+        if ($this->parameters != ''){
+            $this->parameters = json_encode(json_decode($this->parameters));
+        }
     }
 }
