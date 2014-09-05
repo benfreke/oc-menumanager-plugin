@@ -2,6 +2,7 @@
 
 use Model;
 use Lang;
+use Validator;
 use Cms\Classes\Page;
 use Cms\Classes\Theme;
 use Cms\Classes\Controller as BaseController;
@@ -45,7 +46,7 @@ class Menu extends Model
      */
     public $rules = [
         'title' => 'required',
-        'parameters' => ['regex:/^("(\\.|[^"\\\n\r])*?"|[,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t])+?$/']
+        'parameters' => 'json'
     ];
 
      /**
@@ -67,6 +68,12 @@ class Menu extends Model
             // Implement the translatable behavior
             $model->implement[] = 'RainLab.Translate.Behaviors.TranslatableModel';
 
+        });
+
+        Validator::extend('json', function($attribute, $value, $parameters)
+        {
+            json_decode($value);
+            return json_last_error() == JSON_ERROR_NONE;
         });
     }
 
