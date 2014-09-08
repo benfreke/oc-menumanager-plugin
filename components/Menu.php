@@ -40,7 +40,7 @@ class Menu extends ComponentBase
                 'title'       => 'List Item Classes',
                 'default'     => 'item',
                 'type'        => 'string'
-            ], 
+            ],
             'primaryClasses'   => [
                 'description' => 'Classes to add to the primary ul tag',
                 'title'       => 'Primary Classes',
@@ -122,11 +122,19 @@ class Menu extends ComponentBase
             // Go and find the page we're on
             $baseFileName = $this->page->page->getBaseFileName();
 
+            // Get extra URL parameters
+            $params = $this->page->controller->getRouter()->getParameters();
+
             // And make sure the active page is a child of the parentNode
             $activeNode = menuModel::where('url', $baseFileName)
                 ->where('nest_left', '>', $topNode->nest_left)
-                ->where('nest_right', '<', $topNode->nest_right)
-                ->first();
+                ->where('nest_right', '<', $topNode->nest_right);
+
+            if (!empty($params)) {
+                $activeNode->where('parameters', '=', json_encode($params));
+            }
+
+            $activeNode = $activeNode->first();
         }
 
         // If I've got a result that is a node
