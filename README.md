@@ -7,7 +7,13 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.3.0**
+**Currently 1.3.1**
+
+### 1.3.1
+
+- Bug fixed where incorrect active menu was set
+- JSON validation of parameters has been added courtesy
+- Both courtesy of @whsol
 
 ### 1.3.0
 
