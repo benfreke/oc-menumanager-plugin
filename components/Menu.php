@@ -130,10 +130,6 @@ class Menu extends ComponentBase
                 ->where('nest_left', '>', $topNode->nest_left)
                 ->where('nest_right', '<', $topNode->nest_right);
 
-            if (!empty($params)) {
-                $activeNode->where('parameters', '=', json_encode($params));
-            }
-
             $activeNode = $activeNode->first();
         }
 
