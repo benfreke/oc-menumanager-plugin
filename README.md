@@ -7,12 +7,16 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.3.1**
+**Currently 1.3.2**
+
+### 1.3.2
+
+- Bug fixed where param checking breaks active query. Thanks @alxy
 
 ### 1.3.1
 
 - Bug fixed where incorrect active menu was set
-- JSON validation of parameters has been added courtesy
+- JSON validation of parameters has been added
 - Both courtesy of @whsol
 
 ### 1.3.0
