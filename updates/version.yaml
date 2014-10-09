@@ -30,3 +30,5 @@
   - JSON validation of parameters added; Correct active menu now being set based on parameters; PR sent by @whsol, thanks!
 1.3.2:
   - Fix for param check that is breaking active node lookup. Thanks @alxy
+1.3.3:
+  - Fix for JSON comment having single quotes. Thanks @adisos
