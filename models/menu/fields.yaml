@@ -49,7 +49,7 @@ fields:
         default: _self
     parameters:
         label: Extra URL parameters (JSON) e.g if URL uses "/:slug"
-        commentAbove: "{ 'slug' : 'my-page-slug' }"
+        commentAbove: "{ \"slug\" : \"my-page-slug\" }"
         type: text
         size: tiny
     query_string:
