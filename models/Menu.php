@@ -55,6 +55,12 @@ class Menu extends Model
      */
     public static function boot()
     {
+        Validator::extend('json', function($attribute, $value, $parameters)
+        {
+            json_decode($value);
+            return json_last_error() == JSON_ERROR_NONE;
+        });
+        
         // Call default functionality (required)
         parent::boot();
 
@@ -68,12 +74,6 @@ class Menu extends Model
             // Implement the translatable behavior
             $model->implement[] = 'RainLab.Translate.Behaviors.TranslatableModel';
 
-        });
-
-        Validator::extend('json', function($attribute, $value, $parameters)
-        {
-            json_decode($value);
-            return json_last_error() == JSON_ERROR_NONE;
         });
     }
 
