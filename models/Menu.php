@@ -45,36 +45,41 @@ class Menu extends Model
      * @var array Validation rules
      */
     public $rules = [
-        'title' => 'required',
+        'title'      => 'required',
         'parameters' => 'json'
     ];
 
-     /**
+    /**
      * Add translation support to this model, if available.
      * @return void
      */
     public static function boot()
     {
-        Validator::extend('json', function($attribute, $value, $parameters)
-        {
-            json_decode($value);
-            return json_last_error() == JSON_ERROR_NONE;
-        });
-        
+        Validator::extend(
+            'json',
+            function ($attribute, $value, $parameters) {
+                json_decode($value);
+                return json_last_error() == JSON_ERROR_NONE;
+            }
+        );
+
         // Call default functionality (required)
         parent::boot();
 
         // Check the translate plugin is installed
-        if (!class_exists('RainLab\Translate\Behaviors\TranslatableModel'))
+        if (!class_exists('RainLab\Translate\Behaviors\TranslatableModel')) {
             return;
+        }
 
         // Extend the constructor of the model
-        self::extend(function($model){
+        self::extend(
+            function ($model) {
 
-            // Implement the translatable behavior
-            $model->implement[] = 'RainLab.Translate.Behaviors.TranslatableModel';
+                // Implement the translatable behavior
+                $model->implement[] = 'RainLab.Translate.Behaviors.TranslatableModel';
 
-        });
+            }
+        );
     }
 
     /**
@@ -194,7 +199,7 @@ class Menu extends Model
      */
     public function getLinkTarget()
     {
-        return $this->link_target ? : '_self';
+        return $this->link_target ?: '_self';
     }
 
     /**
@@ -223,8 +228,9 @@ class Menu extends Model
     /**
      * Format json
      */
-    public function beforeSave() {
-        if ($this->parameters != ''){
+    public function beforeSave()
+    {
+        if ($this->parameters != '') {
             $this->parameters = json_encode(json_decode($this->parameters));
         }
     }

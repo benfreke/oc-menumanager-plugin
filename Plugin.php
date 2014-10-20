@@ -34,20 +34,20 @@ class Plugin extends PluginBase
     {
         return [
             'menumanager' => [
-                'label' => 'Menus',
-                'url'   => Backend::url('benfreke/menumanager/menus'),
-                'icon'  => 'icon-list-alt',
-                'order' => 500,
+                'label'    => 'Menus',
+                'url'      => Backend::url('benfreke/menumanager/menus'),
+                'icon'     => 'icon-list-alt',
+                'order'    => 500,
                 'sideMenu' => [
-                    'edit' => [
-                        'label'       => 'Edit Menus',
-                        'icon'        => 'icon-list-alt',
-                        'url'         => Backend::url('benfreke/menumanager/menus')
+                    'edit'    => [
+                        'label' => 'Edit Menus',
+                        'icon'  => 'icon-list-alt',
+                        'url'   => Backend::url('benfreke/menumanager/menus')
                     ],
                     'reorder' => [
                         'label' => 'Reorder Menus',
-                        'icon' => 'icon-exchange',
-                        'url' => Backend::url('benfreke/menumanager/menus/reorder')
+                        'icon'  => 'icon-exchange',
+                        'url'   => Backend::url('benfreke/menumanager/menus/reorder')
                     ]
                 ]
             ]

@@ -35,7 +35,7 @@ class Menu extends ComponentBase
                 'default'     => 0,
                 'type'        => 'dropdown'
             ],
-            'listItemClasses'   => [
+            'listItemClasses'  => [
                 'description' => 'Classes to add to the li tag',
                 'title'       => 'List Item Classes',
                 'default'     => 'item',

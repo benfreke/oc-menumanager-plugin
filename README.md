@@ -7,7 +7,11 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.3.3**
+**Currently 1.3.4**
+
+### 1.3.4
+
+- JSON validation now works
 
 ### 1.3.3
 
