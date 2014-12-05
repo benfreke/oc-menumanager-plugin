@@ -165,7 +165,11 @@ class Menu extends Model
         }
 
         if (!empty($this->query_string)) {
-            $url .= '?' . $this->createQueryString($this->query_string);
+            if (substr($this->query_string,0,1)=='#'){
+                $url .= $this->query_string;
+            }else{
+                $url .= '?' . $this->createQueryString($this->query_string);
+            }
         }
 
         return $url;
