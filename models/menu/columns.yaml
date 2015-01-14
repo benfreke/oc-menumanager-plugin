@@ -4,19 +4,21 @@
 
 columns:
   title:
-    label: Title
+    label: benfreke.menumanager::lang.modeldata.title
     searchable: true
   enabled:
+    label: benfreke.menumanager::lang.modeldata.enabled
     type: switch
   url:
-    label: Page linked to
+    label: benfreke.menumanager::lang.modeldata.url
     searchable: true
     options: getUrlOptions
   parameters:
+    label: benfreke.menumanager::lang.modeldata.parameters
     searchable: true
   query_string:
-    label: Query String
+    label: benfreke.menumanager::lang.modeldata.query
     searchable: true
   description:
-    label: Description
+    label: benfreke.menumanager::lang.modeldata.description
     searchable: true

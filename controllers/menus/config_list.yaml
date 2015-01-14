@@ -9,7 +9,7 @@ list: @/plugins/benfreke/menumanager/models/menu/columns.yaml
 modelClass: BenFreke\MenuManager\Models\Menu
 
 # List Title
-title: Manage Menus
+title: benfreke.menumanager::lang.form.manage
 
 # Link URL for each record
 recordUrl: benfreke/menumanager/menus/update/:id

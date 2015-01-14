@@ -5,14 +5,15 @@ use BenFreke\MenuManager\Models\Menu as menuModel;
 use Request;
 use App;
 use DB;
+use Lang;
 
 class Menu extends ComponentBase
 {
     public function componentDetails()
     {
         return [
-            'name'        => 'Menu',
-            'description' => 'Displays a menu on the page'
+            'name'        => 'benfreke.menumanager::lang.menu.name',
+            'description' => 'benfreke.menumanager::lang.menu.description'
         ];
     }
 
@@ -24,44 +25,44 @@ class Menu extends ComponentBase
     {
         return [
             'start'            => [
-                'description' => 'The parent node to get the children of',
-                'title'       => 'Parent Node',
+                'description' => 'benfreke.menumanager::lang.start.description',
+                'title'       => 'benfreke.menumanager::lang.start.title',
                 'default'     => 1,
                 'type'        => 'dropdown'
             ],
             'activeNode'       => [
-                'description' => 'The active page. Set to "default" for the current page to be set as active',
-                'title'       => 'Active Node',
+                'description' => 'benfreke.menumanager::lang.activenode.description',
+                'title'       => 'benfreke.menumanager::lang.activenode.title',
                 'default'     => 0,
                 'type'        => 'dropdown'
             ],
             'listItemClasses'  => [
-                'description' => 'Classes to add to the li tag',
-                'title'       => 'List Item Classes',
+                'description' => 'benfreke.menumanager::lang.listitemclasses.description',
+                'title'       => 'benfreke.menumanager::lang.listitemclasses.title',
                 'default'     => 'item',
                 'type'        => 'string'
             ],
             'primaryClasses'   => [
-                'description' => 'Classes to add to the primary ul tag',
-                'title'       => 'Primary Classes',
+                'description' => 'benfreke.menumanager::lang.primaryclasses.description',
+                'title'       => 'benfreke.menumanager::lang.primaryclasses.title',
                 'default'     => 'nav nav-pills',
                 'type'        => 'string'
             ],
             'secondaryClasses' => [
-                'description' => 'Classes to add to the secondary ul tags',
-                'title'       => 'Secondary Classes',
+                'description' => 'benfreke.menumanager::lang.secondaryclasses.description',
+                'title'       => 'benfreke.menumanager::lang.secondaryclasses.title',
                 'default'     => 'dropdown-menu',
                 'type'        => 'string'
             ],
             'tertiaryClasses'  => [
-                'description' => 'Classes to add to the tertiary ul tags',
-                'title'       => 'Tertiary Classes',
+                'description' => 'benfreke.menumanager::lang.tertiaryclasses.description',
+                'title'       => 'benfreke.menumanager::lang.tertiaryclasses.title',
                 'default'     => '',
                 'type'        => 'string'
             ],
             'numberOfLevels'   => [
-                'description' => 'How many levels of menu to output',
-                'title'       => 'Depth',
+                'description' => 'benfreke.menumanager::lang.numberoflevels.description',
+                'title'       => 'benfreke.menumanager::lang.numberoflevels.title',
                 'default'     => '2', // This is the array key, not the value itself
                 'type'        => 'dropdown',
                 'options'     => [

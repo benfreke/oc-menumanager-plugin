@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('benfreke/menumanager/menus') ?>">Menu</a></li>
+        <li><a href="<?= Backend::url('benfreke/menumanager/menus') ?>"><?= e(trans('benfreke.menumanager::lang.misc.menu')); ?></a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>

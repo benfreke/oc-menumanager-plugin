@@ -4,6 +4,7 @@ use BackendMenu;
 use Backend\Classes\Controller;
 use BenFreke\MenuManager\Models\Menu;
 use Illuminate\Support\Facades\Input;
+use Lang;
 
 /**
  * Menus Back-end Controller
@@ -102,7 +103,7 @@ class Menus extends Controller
         // Ensure the correct sidemenu is active
         BackendMenu::setContext('BenFreke.MenuManager', 'menumanager', 'reorder');
 
-        $this->pageTitle = 'Reorder Menu';
+        $this->pageTitle = Lang::get('benfreke.menumanager::lang.menu.reordermenu');
 
         $toolbarConfig          = $this->makeConfig();
         $toolbarConfig->buttons = '@/plugins/benfreke/menumanager/controllers/menus/_reorder_toolbar.htm';
