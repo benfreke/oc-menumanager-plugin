@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: Menus
+name: benfreke.menumanager::lang.menu.name
 
 # Model Form Field configuration
 form: @/plugins/benfreke/menumanager/models/menu/fields.yaml
@@ -16,20 +16,20 @@ defaultRedirect: benfreke/menumanager/menus
 
 # Create page
 create:
-    title: Create a Menu item
+    title: benfreke.menumanager::lang.form.create
     redirect: benfreke/menumanager/menus/update/:id
     redirectClose: benfreke/menumanager/menus
-    flash-save: Menu has been created
+    flash-save: benfreke.menumanager::lang.form.flashcreate
 
 # Update page
 update:
-    title: Edit a Menu item
+    title: benfreke.menumanager::lang.form.update
     redirect: benfreke/menumanager/menus
     redirectClose: benfreke/menumanager/menus
-    flash-save: Menu updated
-    flash-delete: Menu deleted
+    flash-save: benfreke.menumanager::lang.form.flashupdate
+    flash-delete: benfreke.menumanager::lang.form.flashdelete
 
 # Preview page
 preview:
-    title: Preview Menus
+    title: benfreke.menumanager::lang.form.preview
 

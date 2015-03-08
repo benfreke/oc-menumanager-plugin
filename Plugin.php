@@ -18,8 +18,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'MenuManager',
-            'description' => 'Plugin to enable management of menus within October CMS',
+            'name'        => 'benfreke.menumanager::lang.plugin.name',
+            'description' => 'benfreke.menumanager::lang.plugin.description',
             'author'      => 'Ben Freke',
             'icon'        => 'icon-list-alt'
         ];
@@ -34,18 +34,18 @@ class Plugin extends PluginBase
     {
         return [
             'menumanager' => [
-                'label'    => 'Menus',
+                'label'    => 'benfreke.menumanager::lang.menu.name',
                 'url'      => Backend::url('benfreke/menumanager/menus'),
                 'icon'     => 'icon-list-alt',
                 'order'    => 500,
                 'sideMenu' => [
                     'edit'    => [
-                        'label' => 'Edit Menus',
+                        'label' => 'benfreke.menumanager::lang.menu.editmenu',
                         'icon'  => 'icon-list-alt',
                         'url'   => Backend::url('benfreke/menumanager/menus')
                     ],
                     'reorder' => [
-                        'label' => 'Reorder Menus',
+                        'label' => 'benfreke.menumanager::lang.menu.reordermenu',
                         'icon'  => 'icon-exchange',
                         'url'   => Backend::url('benfreke/menumanager/menus/reorder')
                     ]

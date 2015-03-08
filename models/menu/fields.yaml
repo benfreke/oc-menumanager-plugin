@@ -4,59 +4,59 @@
 
 fields:
     title:
-        label: Title
+        label: benfreke.menumanager::lang.modeldataform.title
         span: left
     description:
-        label: Purpose/Description (optional)
+        label: benfreke.menumanager::lang.modeldataform.description
         span: right
     enabled:
-        label: Enable/disable this link
+        label: benfreke.menumanager::lang.modeldataform.enabled
         type: radio
         options:
-            0: Disabled
-            1: Enabled
+            0: benfreke.menumanager::lang.modeldataform.optdisabled
+            1: benfreke.menumanager::lang.modeldataform.optenabled
         default: 1
         span: left
     is_external:
-        label: Menu type
+        label: benfreke.menumanager::lang.modeldataform.external
         type: dropdown
-        placeholder: -- Select Menu Type --
+        placeholder: benfreke.menumanager::lang.modeldataform.selectmenutype
         options:
-            0: Internal
-            1: External
+            0: benfreke.menumanager::lang.modeldataform.optinternal
+            1: benfreke.menumanager::lang.modeldataform.optexternal
         default: 0
         cssClass: menumanager-type-controller
         span: left
     internal_url:
-        label: File to link To
+        label: benfreke.menumanager::lang.modeldataform.internalurl
         type: dropdown
-        placeholder: -- Select File to link to --
+        placeholder: benfreke.menumanager::lang.modeldataform.internalurlplaceholder
         options: getUrlOptions
         cssClass: menumanager-type type-0
         span: right
     external_url:
         label: Url
-        placeholder: Type external url
+        placeholder: benfreke.menumanager::lang.modeldataform.externalurl
         cssClass: menumanager-type type-1
-        comment: e.g. http://example.com
+        comment: benfreke.menumanager::lang.modeldataform.externalurlcomment
         span: right
     link_target:
-        label: Open link in
+        label: benfreke.menumanager::lang.modeldataform.linktarget
         type: radio
         options:
-            _self: In the same tab
-            _blank: In new tab
+            _self: benfreke.menumanager::lang.modeldataform.self
+            _blank: benfreke.menumanager::lang.modeldataform.blank
         default: _self
     parameters:
-        label: Extra URL parameters (JSON) e.g if URL uses "/:slug"
-        commentAbove: "{ \"slug\" : \"my-page-slug\" }"
+        label: benfreke.menumanager::lang.modeldataform.parameters
+        commentAbove: benfreke.menumanager::lang.modeldataform.parameterscomment
         type: text
         size: tiny
     query_string:
-        label: Extra non-OctoberCMS query string parameters (they will be automatically escaped)
-        commentAbove: e.g "param1=foo&param2=http://www.google.com"
+        label: benfreke.menumanager::lang.modeldataform.querystr
+        commentAbove: benfreke.menumanager::lang.modeldataform.querystrcomment
         type: text
         size: tiny
     url:
-        label: URL
+        label: benfreke.menumanager::lang.modeldataform.url
         cssClass: hidden

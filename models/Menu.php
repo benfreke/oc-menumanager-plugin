@@ -122,7 +122,7 @@ class Menu extends Model
     {
         $allPages = Page::sortBy('baseFileName')->lists('title', 'baseFileName');
         $pages    = array(
-            '' => 'No page link'
+            '' => Lang::get('benfreke.menumanager::lang.create.nolink')
         );
         foreach ($allPages as $key => $value) {
             $pages[$key] = "{$value} - (File: $key)";
