@@ -37,21 +37,31 @@ class Plugin extends PluginBase
                 'label'    => 'benfreke.menumanager::lang.menu.name',
                 'url'      => Backend::url('benfreke/menumanager/menus'),
                 'icon'     => 'icon-list-alt',
+                'permissions' => ['benfreke.menumanager.*'],
                 'order'    => 500,
                 'sideMenu' => [
                     'edit'    => [
                         'label' => 'benfreke.menumanager::lang.menu.editmenu',
                         'icon'  => 'icon-list-alt',
-                        'url'   => Backend::url('benfreke/menumanager/menus')
+                        'url'   => Backend::url('benfreke/menumanager/menus'),
+                        'permissions' => ['benfreke.menumanager.access_menumanager']
                     ],
                     'reorder' => [
                         'label' => 'benfreke.menumanager::lang.menu.reordermenu',
                         'icon'  => 'icon-exchange',
-                        'url'   => Backend::url('benfreke/menumanager/menus/reorder')
+                        'url'   => Backend::url('benfreke/menumanager/menus/reorder'),
+                        'permissions' => ['benfreke.menumanager.access_menumanager']
                     ]
                 ]
             ]
         ];
+    }
+
+    public function registerPermissions()
+    {
+        return array(
+            'benfreke.menumanager.access_menumanager' => ['label' => 'Manage menu', 'tab' => 'MenuManager']
+        );
     }
 
     /**
