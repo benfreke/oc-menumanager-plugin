@@ -15,6 +15,7 @@ class Menu extends Model
 {
     use \October\Rain\Database\Traits\NestedTree;
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\Purgeable;
 
     /**
      * @var \Cms\Classes\Controller A reference to the CMS controller.
@@ -40,6 +41,11 @@ class Menu extends Model
      * @var array Fillable fields
      */
     protected $fillable = ['title', 'description', 'parent_id'];
+
+    /**
+     * @var array List of purgeable values.
+     */
+    protected $purgeable = ['internal_url', 'external_url'];
 
     /**
      * @var array Validation rules

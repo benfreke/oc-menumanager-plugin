@@ -36,3 +36,4 @@
   - Fix for JSON validation not firing
 1.3.5:
   - Fix for POST operations. PR by @matissjanis
+  - fix_menu_table.php
