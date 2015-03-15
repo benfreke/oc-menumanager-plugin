@@ -34,6 +34,6 @@
   - Fix for JSON comment having single quotes. Thanks @adisos
 1.3.4:
   - Fix for JSON validation not firing
-1.3.5:
-  - Fix for POST operations. PR by @matissjanis
+1.4.0:
+  - Fix for POST operations. PR by @matissjanis, TR translations (@mahony0) and permission registration (@nnmer)
   - fix_menu_table.php

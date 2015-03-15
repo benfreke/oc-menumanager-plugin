@@ -49,7 +49,6 @@ class Menus extends Controller
         unset($new_post_data['Menu']['internal_url']);
         unset($new_post_data['Menu']['external_url']);
         Input::replace($new_post_data);
-        $_POST = $new_post_data;
     }
 
     /**
