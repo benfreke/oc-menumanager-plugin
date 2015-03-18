@@ -73,5 +73,35 @@ return [
         'querystr' => 'Extra non-OctoberCMS query string parameters (they will be automatically escaped)',
         'querystrcomment' => 'e.g "param1=foo&amp;param2=http://www.google.com"',
         'url' => 'URL'
+    ],
+    'component' => [
+        'start' => [
+            'title' => 'Parent Node',
+            'description' => 'The parent node to get the children of'
+        ],
+        'activenode' => [
+            'description' => 'The active page. Set to "default" for the current page to be set as active',
+            'title' => 'Active Node',
+        ],
+        'listitemclasses' => [
+            'description' => 'Classes to add to the li tag',
+            'title' => 'List Item Classes',
+        ],
+        'primaryclasses' => [
+            'description' => 'Classes to add to the primary ul tag',
+            'title' => 'Primary Classes',
+        ],
+        'secondaryclasses' => [
+            'title' => 'Parent Node',
+            'description' => 'The parent node to get the children of'
+        ],
+        'tertiaryclasses' => [
+            'description' => 'Classes to add to the secondary ul tags',
+            'title' => 'Secondary Classes',
+        ],
+        'numberoflevels' => [
+            'description' => 'How many levels of menu to output',
+            'title' => 'Depth',
+        ]
     ]
 ];
