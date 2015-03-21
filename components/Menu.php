@@ -1,11 +1,11 @@
 <?php namespace BenFreke\MenuManager\Components;
 
-use Cms\Classes\ComponentBase;
-use BenFreke\MenuManager\Models\Menu as menuModel;
-use Request;
 use App;
+use BenFreke\MenuManager\Models\Menu as menuModel;
+use Cms\Classes\ComponentBase;
 use DB;
 use Lang;
+use Request;
 
 class Menu extends ComponentBase
 {
@@ -25,44 +25,44 @@ class Menu extends ComponentBase
     {
         return [
             'start'            => [
-                'description' => 'benfreke.menumanager::lang.start.description',
-                'title'       => 'benfreke.menumanager::lang.start.title',
+                'description' => 'benfreke.menumanager::lang.component.start.description',
+                'title'       => 'benfreke.menumanager::lang.component.start.title',
                 'default'     => 1,
                 'type'        => 'dropdown'
             ],
             'activeNode'       => [
-                'description' => 'benfreke.menumanager::lang.activenode.description',
-                'title'       => 'benfreke.menumanager::lang.activenode.title',
+                'description' => 'benfreke.menumanager::lang.component.activenode.description',
+                'title'       => 'benfreke.menumanager::lang.component.activenode.title',
                 'default'     => 0,
                 'type'        => 'dropdown'
             ],
             'listItemClasses'  => [
-                'description' => 'benfreke.menumanager::lang.listitemclasses.description',
-                'title'       => 'benfreke.menumanager::lang.listitemclasses.title',
+                'description' => 'benfreke.menumanager::lang.component.listitemclasses.description',
+                'title'       => 'benfreke.menumanager::lang.component.listitemclasses.title',
                 'default'     => 'item',
                 'type'        => 'string'
             ],
             'primaryClasses'   => [
-                'description' => 'benfreke.menumanager::lang.primaryclasses.description',
-                'title'       => 'benfreke.menumanager::lang.primaryclasses.title',
+                'description' => 'benfreke.menumanager::lang.component.primaryclasses.description',
+                'title'       => 'benfreke.menumanager::lang.component.primaryclasses.title',
                 'default'     => 'nav nav-pills',
                 'type'        => 'string'
             ],
             'secondaryClasses' => [
-                'description' => 'benfreke.menumanager::lang.secondaryclasses.description',
-                'title'       => 'benfreke.menumanager::lang.secondaryclasses.title',
+                'description' => 'benfreke.menumanager::lang.component.secondaryclasses.description',
+                'title'       => 'benfreke.menumanager::lang.component.secondaryclasses.title',
                 'default'     => 'dropdown-menu',
                 'type'        => 'string'
             ],
             'tertiaryClasses'  => [
-                'description' => 'benfreke.menumanager::lang.tertiaryclasses.description',
-                'title'       => 'benfreke.menumanager::lang.tertiaryclasses.title',
+                'description' => 'benfreke.menumanager::lang.component.tertiaryclasses.description',
+                'title'       => 'benfreke.menumanager::lang.component.tertiaryclasses.title',
                 'default'     => '',
                 'type'        => 'string'
             ],
             'numberOfLevels'   => [
-                'description' => 'benfreke.menumanager::lang.numberoflevels.description',
-                'title'       => 'benfreke.menumanager::lang.numberoflevels.title',
+                'description' => 'benfreke.menumanager::lang.component.numberoflevels.description',
+                'title'       => 'benfreke.menumanager::lang.component.numberoflevels.title',
                 'default'     => '2', // This is the array key, not the value itself
                 'type'        => 'dropdown',
                 'options'     => [
@@ -72,17 +72,6 @@ class Menu extends ComponentBase
                 ]
             ]
         ];
-
-    }
-
-    /**
-     * Returns the list of menu items I can select
-     * @return array
-     */
-    public function getStartOptions()
-    {
-        $menuModel = new menuModel();
-        return $menuModel->getSelectList();
     }
 
     /**
@@ -99,25 +88,37 @@ class Menu extends ComponentBase
     }
 
     /**
+     * Returns the list of menu items I can select
+     *
+     * @return array
+     */
+    public function getStartOptions()
+    {
+        $menuModel = new menuModel();
+
+        return $menuModel->getSelectList();
+    }
+
+    /**
      * Build all my parameters for the view
+     *
      * @todo Pull as much as possible into the model, including the column names
      */
     public function onRender()
     {
         // Set the parentNode for the component output
-        $topNode                  = menuModel::find($this->getIdFromProperty($this->property('start')));
+        $topNode = menuModel::find($this->getIdFromProperty($this->property('start')));
         $this->page['parentNode'] = $topNode;
 
         // What page is active?
-        $this->page['activeLeft']  = 0;
+        $this->page['activeLeft'] = 0;
         $this->page['activeRight'] = 0;
-        $activeNode                = $this->getIdFromProperty($this->property('activeNode'));
+        $activeNode = $this->getIdFromProperty($this->property('activeNode'));
 
         if ($activeNode) {
 
             // It's been set by the user, so use what they've set it as
             $activeNode = menuModel::find($activeNode);
-
         } elseif ($topNode) {
 
             // Go and find the page we're on
@@ -136,7 +137,7 @@ class Menu extends ComponentBase
 
         // If I've got a result that is a node
         if ($activeNode && menuModel::getClassName() === get_class($activeNode)) {
-            $this->page['activeLeft']  = (int)$activeNode->nest_left;
+            $this->page['activeLeft'] = (int)$activeNode->nest_left;
             $this->page['activeRight'] = (int)$activeNode->nest_right;
         }
 
@@ -144,10 +145,10 @@ class Menu extends ComponentBase
         $this->page['numberOfLevels'] = (int)$this->property('numberOfLevels');
 
         // Add the classes to the view
-        $this->page['primaryClasses']   = $this->property('primaryClasses');
+        $this->page['primaryClasses'] = $this->property('primaryClasses');
         $this->page['secondaryClasses'] = $this->property('secondaryClasses');
-        $this->page['tertiaryClasses']  = $this->property('tertiaryClasses');
-        $this->page['listItemClasses']  = $this->property('listItemClasses');
+        $this->page['tertiaryClasses'] = $this->property('tertiaryClasses');
+        $this->page['listItemClasses'] = $this->property('listItemClasses');
     }
 
     /**
@@ -164,6 +165,7 @@ class Menu extends ComponentBase
         if (!strlen($value) > 3) {
             return false;
         }
+
         return substr($value, 3);
     }
 
