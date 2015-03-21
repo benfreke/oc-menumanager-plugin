@@ -25,44 +25,44 @@ class Menu extends ComponentBase
     {
         return [
             'start'            => [
-                'description' => 'benfreke.menumanager::lang.start.description',
-                'title'       => 'benfreke.menumanager::lang.start.title',
+                'description' => 'benfreke.menumanager::lang.component.start.description',
+                'title'       => 'benfreke.menumanager::lang.component.start.title',
                 'default'     => 1,
                 'type'        => 'dropdown'
             ],
             'activeNode'       => [
-                'description' => 'benfreke.menumanager::lang.activenode.description',
-                'title'       => 'benfreke.menumanager::lang.activenode.title',
+                'description' => 'benfreke.menumanager::lang.component.activenode.description',
+                'title'       => 'benfreke.menumanager::lang.component.activenode.title',
                 'default'     => 0,
                 'type'        => 'dropdown'
             ],
             'listItemClasses'  => [
-                'description' => 'benfreke.menumanager::lang.listitemclasses.description',
-                'title'       => 'benfreke.menumanager::lang.listitemclasses.title',
+                'description' => 'benfreke.menumanager::lang.component.listitemclasses.description',
+                'title'       => 'benfreke.menumanager::lang.component.listitemclasses.title',
                 'default'     => 'item',
                 'type'        => 'string'
             ],
             'primaryClasses'   => [
-                'description' => 'benfreke.menumanager::lang.primaryclasses.description',
-                'title'       => 'benfreke.menumanager::lang.primaryclasses.title',
+                'description' => 'benfreke.menumanager::lang.component.primaryclasses.description',
+                'title'       => 'benfreke.menumanager::lang.component.primaryclasses.title',
                 'default'     => 'nav nav-pills',
                 'type'        => 'string'
             ],
             'secondaryClasses' => [
-                'description' => 'benfreke.menumanager::lang.secondaryclasses.description',
-                'title'       => 'benfreke.menumanager::lang.secondaryclasses.title',
+                'description' => 'benfreke.menumanager::lang.component.secondaryclasses.description',
+                'title'       => 'benfreke.menumanager::lang.component.secondaryclasses.title',
                 'default'     => 'dropdown-menu',
                 'type'        => 'string'
             ],
             'tertiaryClasses'  => [
-                'description' => 'benfreke.menumanager::lang.tertiaryclasses.description',
-                'title'       => 'benfreke.menumanager::lang.tertiaryclasses.title',
+                'description' => 'benfreke.menumanager::lang.component.tertiaryclasses.description',
+                'title'       => 'benfreke.menumanager::lang.component.tertiaryclasses.title',
                 'default'     => '',
                 'type'        => 'string'
             ],
             'numberOfLevels'   => [
-                'description' => 'benfreke.menumanager::lang.numberoflevels.description',
-                'title'       => 'benfreke.menumanager::lang.numberoflevels.title',
+                'description' => 'benfreke.menumanager::lang.component.numberoflevels.description',
+                'title'       => 'benfreke.menumanager::lang.component.numberoflevels.title',
                 'default'     => '2', // This is the array key, not the value itself
                 'type'        => 'dropdown',
                 'options'     => [
