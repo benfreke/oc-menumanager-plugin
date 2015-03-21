@@ -7,7 +7,13 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.3.4**
+**Currently 1.4.0**
+
+### 1.4.0
+
+- Multiple bug fixes due to new features in OctoberCMS
+- Ability to translate added
+- Ability to add fragments to URL added
 
 ### 1.3.4
 
