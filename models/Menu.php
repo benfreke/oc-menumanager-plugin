@@ -1,12 +1,12 @@
 <?php namespace BenFreke\MenuManager\Models;
 
-use Model;
-use Lang;
-use Validator;
+use Cms\Classes\Controller as BaseController;
 use Cms\Classes\Page;
 use Cms\Classes\Theme;
-use Cms\Classes\Controller as BaseController;
+use Lang;
+use Model;
 use System\Classes\ApplicationException;
+use Validator;
 
 /**
  * Menu Model
@@ -18,11 +18,6 @@ class Menu extends Model
     use \October\Rain\Database\Traits\Purgeable;
 
     /**
-     * @var \Cms\Classes\Controller A reference to the CMS controller.
-     */
-    private $controller;
-
-    /**
      * @var string The database table used by the model.
      */
     public $table = 'benfreke_menumanager_menus';
@@ -31,6 +26,14 @@ class Menu extends Model
      * @var array Translatable fields
      */
     public $translatable = ['title', 'description'];
+
+    /**
+     * @var array Validation rules
+     */
+    public $rules = [
+        'title'      => 'required',
+        'parameters' => 'json'
+    ];
 
     /**
      * @var array Guarded fields
@@ -48,15 +51,13 @@ class Menu extends Model
     protected $purgeable = ['internal_url', 'external_url'];
 
     /**
-     * @var array Validation rules
+     * @var \Cms\Classes\Controller A reference to the CMS controller.
      */
-    public $rules = [
-        'title'      => 'required',
-        'parameters' => 'json'
-    ];
+    private $controller;
 
     /**
      * Add translation support to this model, if available.
+     *
      * @return void
      */
     public static function boot()
@@ -65,6 +66,7 @@ class Menu extends Model
             'json',
             function ($attribute, $value, $parameters) {
                 json_decode($value);
+
                 return json_last_error() == JSON_ERROR_NONE;
             }
         );
@@ -83,23 +85,24 @@ class Menu extends Model
 
                 // Implement the translatable behavior
                 $model->implement[] = 'RainLab.Translate.Behaviors.TranslatableModel';
-
             }
         );
     }
 
     /**
      * Returns the list of menu items, where the key is the id and the value is the title, indented with '-' for depth
+     *
      * @return array
      */
     public function getSelectList()
     {
-        $items  = $this->getAll();
+        $items = $this->getAll();
         $output = array();
         foreach ($items as $item) {
-            $depthIndicator         = $this->getDepthIndicators($item->nest_depth);
+            $depthIndicator = $this->getDepthIndicators($item->nest_depth);
             $output["id-$item->id"] = $depthIndicator . ' ' . $item->title;
         }
+
         return $output;
     }
 
@@ -116,6 +119,7 @@ class Menu extends Model
         if ($depth < 1) {
             return $indicators;
         }
+
         return $this->getDepthIndicators(--$depth, $indicators . '-');
     }
 
@@ -127,23 +131,14 @@ class Menu extends Model
     public function getUrlOptions()
     {
         $allPages = Page::sortBy('baseFileName')->lists('title', 'baseFileName');
-        $pages    = array(
+        $pages = array(
             '' => Lang::get('benfreke.menumanager::lang.create.nolink')
         );
         foreach ($allPages as $key => $value) {
             $pages[$key] = "{$value} - (File: $key)";
         }
-        return $pages;
-    }
 
-    /**
-     * Returns the class name so I can compare
-     *
-     * @return string
-     */
-    public static function getClassName()
-    {
-        return get_called_class();
+        return $pages;
     }
 
     /**
@@ -171,9 +166,9 @@ class Menu extends Model
         }
 
         if (!empty($this->query_string)) {
-            if (substr($this->query_string,0,1)=='#'){
+            if (substr($this->query_string, 0, 1) == '#') {
                 $url .= $this->query_string;
-            }else{
+            } else {
                 $url .= '?' . $this->createQueryString($this->query_string);
             }
         }
@@ -215,7 +210,7 @@ class Menu extends Model
     /**
      * Load the item classes here to keep the twig template clean
      *
-     * @param int $leftIndex  The left value of the active node
+     * @param int $leftIndex The left value of the active node
      * @param int $rightIndex The right value of the active node
      *
      * @return string

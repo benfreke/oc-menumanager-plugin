@@ -106,7 +106,7 @@ class Menus extends Controller
 
         $this->pageTitle = Lang::get('benfreke.menumanager::lang.menu.reordermenu');
 
-        $toolbarConfig          = $this->makeConfig();
+        $toolbarConfig = $this->makeConfig();
         $toolbarConfig->buttons = '@/plugins/benfreke/menumanager/controllers/menus/_reorder_toolbar.htm';
 
         $this->vars['toolbar'] = $this->makeWidget('Backend\Widgets\Toolbar', $toolbarConfig);
