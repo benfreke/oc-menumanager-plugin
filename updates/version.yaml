@@ -37,3 +37,5 @@
 1.4.0:
   - Fix for POST operations. PR by @matissjanis, TR translations (@mahony0) and permission registration (@nnmer)
   - fix_menu_table.php
+1.4.1:
+  - Fixed bug caused by deleting needed method of Menu class. Thanks @MatissJA
