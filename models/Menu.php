@@ -142,6 +142,16 @@ class Menu extends Model
     }
 
     /**
+     * Returns the class name so I can compare
+     *
+     * @return string
+     */
+    public static function getClassName()
+    {
+        return get_called_class();
+     }
+
+    /**
      * Returns the correct url for this menu item.
      * It will either be the full page URL or '#' if no link was provided
      *
