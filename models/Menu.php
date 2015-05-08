@@ -7,6 +7,7 @@ use Lang;
 use Model;
 use System\Classes\ApplicationException;
 use Validator;
+use Input;
 
 /**
  * Menu Model
@@ -248,5 +249,20 @@ class Menu extends Model
         if ($this->parameters != '') {
             $this->parameters = json_encode(json_decode($this->parameters));
         }
+    }
+
+    /**
+     * Sets the URL attribute, based on whether it is internal or external
+     *
+     * @param $value
+     */
+    public function setUrlAttribute($value)
+    {
+        if ( $this->is_external ) {
+            $urlValue = $this->external_url;
+        } else {
+            $urlValue = $this->internal_url;
+        }
+        $this->attributes['url'] = $urlValue;
     }
 }
