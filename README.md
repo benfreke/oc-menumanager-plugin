@@ -7,7 +7,11 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.4.1**
+**Currently 1.4.2**
+
+### 1.4.2
+
+- Fixed bug where url field was not saving. Refactored code to use a Laravel Mutator.
 
 ### 1.4.1
 
