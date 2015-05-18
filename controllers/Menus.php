@@ -35,46 +35,6 @@ class Menus extends Controller
     }
 
     /**
-     * Ensures the correct URL value is saved to the model
-     */
-    protected function modifyPost()
-    {
-        $new_post_data = post();
-
-        if (post('Menu')['is_external'] == "1") {
-            $new_post_data['Menu']['url'] = $new_post_data['Menu']['external_url'];
-        } else {
-            $new_post_data['Menu']['url'] = $new_post_data['Menu']['internal_url'];
-        }
-        unset($new_post_data['Menu']['internal_url']);
-        unset($new_post_data['Menu']['external_url']);
-        Input::replace($new_post_data);
-    }
-
-    /**
-     * Ajax handler for updating the form.
-     *
-     * @param int $recordId The model primary key to update.
-     *
-     * @return mixed
-     */
-    public function update_onSave($recordId = null)
-    {
-        $this->modifyPost();
-        return $this->getClassExtension('Backend.Behaviors.FormController')->update_onSave($recordId);
-    }
-
-    /**
-     * Overrided ajax handler for saving from the creation form.
-     * @return mixed
-     */
-    public function create_onSave()
-    {
-        $this->modifyPost();
-        return $this->getClassExtension('Backend.Behaviors.FormController')->create_onSave();
-    }
-
-    /**
      * As external_url and internal_url doesn't exist in database, we need fill with url value.
      *
      * @param $host
