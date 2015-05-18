@@ -39,3 +39,5 @@
   - fix_menu_table.php
 1.4.1:
   - Fixed bug caused by deleting needed method of Menu class. Thanks @MatissJA
+1.4.2:
+  - Fixed bug with URLs not saving correctly
