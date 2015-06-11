@@ -7,7 +7,11 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.4.2**
+**Currently 1.4.3**
+
+### 1.4.3
+
+- Fixed bug where getBaseFileName method was moved to a different object
 
 ### 1.4.2
 

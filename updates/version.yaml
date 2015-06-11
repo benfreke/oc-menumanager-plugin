@@ -41,3 +41,5 @@
   - Fixed bug caused by deleting needed method of Menu class. Thanks @MatissJA
 1.4.2:
   - Fixed bug with URLs not saving correctly
+1.4.3:
+  - Fixed bug where getBaseFileName method was moved to a different object
