@@ -122,7 +122,7 @@ class Menu extends ComponentBase
         } elseif ($topNode) {
 
             // Go and find the page we're on
-            $baseFileName = $this->page->page->getBaseFileName();
+            $baseFileName = $this->page->cmsObject->page->getBaseFileName();
 
             // Get extra URL parameters
             $params = $this->page->controller->getRouter()->getParameters();
