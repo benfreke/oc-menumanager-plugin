@@ -43,3 +43,5 @@
   - Fixed bug with URLs not saving correctly
 1.4.3:
   - Fixed bug where getBaseFileName method was moved to a different object
+1.4.4:
+  - Fixed bug with incorrect labels. Thanks @ribsousa
