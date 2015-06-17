@@ -92,12 +92,12 @@ return [
             'title' => 'Primary Classes',
         ],
         'secondaryclasses' => [
-            'title' => 'Parent Node',
+            'title' => 'Secondary Classes',
             'description' => 'The parent node to get the children of'
         ],
         'tertiaryclasses' => [
             'description' => 'Classes to add to the secondary ul tags',
-            'title' => 'Secondary Classes',
+            'title' => 'Tertiary Classes',
         ],
         'numberoflevels' => [
             'description' => 'How many levels of menu to output',
