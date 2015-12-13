@@ -10,7 +10,10 @@ class CreateMenusTable extends Migration
     {
         Schema::create('benfreke_menumanager_menus', function($table)
         {
-            $table->engine = 'InnoDB';
+            $pdo = DB::connection()->getPdo();
+            if('mysql' == $pdo->getAttribute(PDO::ATTR_DRIVER_NAME)){
+                $table->engine = 'InnoDB';
+            }
             $table->increments('id');
             $table->integer('parent_id')->unsigned()->index()->nullable();
             $table->string('title');
