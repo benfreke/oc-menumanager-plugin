@@ -1,6 +1,7 @@
 <?php namespace BenFreke\MenuManager\Updates;
 
 use Schema;
+use DB;
 use October\Rain\Database\Updates\Migration;
 
 class CreateMenusTable extends Migration

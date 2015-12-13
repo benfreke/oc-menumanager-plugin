@@ -70,7 +70,10 @@ class FixMenuTable extends Migration
     public function down()
     {
       /*
-        Normally, there is no way back...
+        No way back...
+        If for some reason there will be entries with null values on
+        nest_left/nest_right fields just re-adding NOT NULL constraints 
+        will break the script.
       */
 
     }
