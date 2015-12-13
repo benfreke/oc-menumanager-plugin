@@ -19,8 +19,8 @@ class FixMenuTable extends Migration
             $table->string('title');
             $table->string('description')->nullable();
             $table->string('url')->nullable();
-            $table->integer('nest_left')->nullable();
-            $table->integer('nest_right')->nullable();
+            $table->integer('nest_left')->unsigned()->nullable();
+            $table->integer('nest_right')->unsigned()->nullable();
             $table->integer('nest_depth')->nullable();
             $table->timestamps();
         });
@@ -72,7 +72,7 @@ class FixMenuTable extends Migration
       /*
         No way back...
         If for some reason there will be entries with null values on
-        nest_left/nest_right fields just re-adding NOT NULL constraints 
+        nest_left/nest_right fields just re-adding NOT NULL constraints
         will break the script.
       */
 
