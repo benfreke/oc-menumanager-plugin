@@ -7,7 +7,11 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.4.5**
+**Currently 1.4.6**
+
+### 1.4.6
+
+- Merged PRs that fix bug with plugin not working with stable release
 
 ### 1.4.5
 
