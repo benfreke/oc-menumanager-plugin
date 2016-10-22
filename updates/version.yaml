@@ -47,3 +47,5 @@
   - Fixed bug with incorrect labels. Thanks @ribsousa
 1.4.5:
   - Fixed bug where getBaseFileName method was moved to a different object
+1.4.6:
+  - Merged PRs that fix bug with plugin not working with stable release
