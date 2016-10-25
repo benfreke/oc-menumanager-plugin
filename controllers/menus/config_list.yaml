@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/plugins/benfreke/menumanager/models/menu/columns.yaml
+list: ~/plugins/benfreke/menumanager/models/menu/columns.yaml
 
 # Model Class name
 modelClass: BenFreke\MenuManager\Models\Menu
