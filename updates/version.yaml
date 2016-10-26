@@ -49,3 +49,5 @@
   - Fixed bug where getBaseFileName method was moved to a different object
 1.4.6:
   - Merged PRs that fix bug with plugin not working with stable release
+1.4.7:
+  - Merged PR to fix syntax errors with fresh install of 1.4.6. Thanks @devlifeX
