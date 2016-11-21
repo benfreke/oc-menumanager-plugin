@@ -6,7 +6,7 @@
 name: benfreke.menumanager::lang.menu.name
 
 # Model Form Field configuration
-form: $/plugins/benfreke/menumanager/models/menu/fields.yaml
+form: ~/plugins/benfreke/menumanager/models/menu/fields.yaml
 
 # Model Class name
 modelClass: BenFreke\MenuManager\Models\Menu
