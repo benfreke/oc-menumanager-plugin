@@ -7,7 +7,11 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.4.7**
+**Currently 1.4.8**
+
+### 1.4.8
+
+- Merged PR to fix re-order errors. Thanks [@CptMeatball](https://github.com/CptMeatball)
 
 ### 1.4.7
 
