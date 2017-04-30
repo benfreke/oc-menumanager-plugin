@@ -3,16 +3,14 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class AddEnabledParametersQueryFields extends Migration
+class AddEnabledParametersQueryFields2 extends Migration
 {
 
     public function up()
     {
         Schema::table('benfreke_menumanager_menus', function($table)
         {
-            $table->integer('enabled')->default(1);
             $table->string('parameters')->nullable();
-            $table->string('query_string')->nullable();
         });
     }
 
@@ -20,9 +18,7 @@ class AddEnabledParametersQueryFields extends Migration
     {
         Schema::table('benfreke_menumanager_menus', function($table)
         {
-            $table->dropColumn('enabled');
             $table->dropColumn('parameters');
-            $table->dropColumn('query_string');
         });
     }
 

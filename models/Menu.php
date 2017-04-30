@@ -258,10 +258,15 @@ class Menu extends Model
      */
     public function setUrlAttribute($value)
     {
-        if ( $this->is_external ) {
+        $urlValue = null;
+        if ( $this->is_external && !empty($this->external_url) ) {
             $urlValue = $this->external_url;
-        } else {
+        } elseif (!$this->is_external && !empty($this->internal_url)) {
             $urlValue = $this->internal_url;
+        }
+        // Allow seeding
+        if (empty($urlValue) && !empty($value)) {
+            $urlValue = $value;
         }
         $this->attributes['url'] = $urlValue;
     }
