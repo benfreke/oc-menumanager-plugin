@@ -58,7 +58,13 @@ class SeedAllTables extends Seeder
                 'url' => ''
             ]
         );
-
-
+        $ajaxDemo->children()->create(
+            [
+                'title' => 'Google Search',
+                'description' => 'External link example',
+                'is_external' => true,
+                'url' => 'http://www.google.com'
+            ]
+        );
     }
 }
