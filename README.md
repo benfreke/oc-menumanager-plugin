@@ -7,7 +7,11 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.4.8**
+**Currently 1.5.0**
+
+### 1.5.0
+
+- Added support for postgres and sqlite by fixing migrations and updating mutator and accessors
 
 ### 1.4.8
 
@@ -185,4 +189,3 @@ If you have any suggestions, please [raise an issue](https://github.com/benfreke
 - Obviously the [OctoberCMS](http://octobercms.com/) creators, [Samuel Georges](https://github.com/daftspunk) and [Aleksey Bobkov](https://github.com/alekseybobkov)
 - [DanielHitchen](https://github.com/DanielHitchen) for bug reporting, enhancements and requests/ideas
 - [Adis](https://github.com/adisos) for help with the 1.1.x releases
-

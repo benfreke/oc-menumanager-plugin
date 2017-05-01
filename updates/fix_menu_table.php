@@ -1,6 +1,6 @@
 <?php namespace BenFreke\MenuManager\Updates;
 
-use DB;
+use Schema;
 use October\Rain\Database\Updates\Migration;
 
 class FixMenuTable extends Migration
@@ -8,14 +8,18 @@ class FixMenuTable extends Migration
 
     public function up()
     {
-        DB::statement('ALTER TABLE `benfreke_menumanager_menus` MODIFY `nest_left` INTEGER UNSIGNED NULL;');
-        DB::statement('ALTER TABLE `benfreke_menumanager_menus` MODIFY `nest_right` INTEGER UNSIGNED NULL;');
+        Schema::table('benfreke_menumanager_menus', function ($table) {
+            $table->integer('nest_left')->nullable()->change();
+            $table->integer('nest_right')->nullable()->change();
+        });
     }
 
     public function down()
     {
-        DB::statement('ALTER TABLE `benfreke_menumanager_menus` MODIFY `nest_left` INTEGER UNSIGNED;');
-        DB::statement('ALTER TABLE `benfreke_menumanager_menus` MODIFY `nest_right` INTEGER UNSIGNED;');
+        Schema::table('benfreke_menumanager_menus', function ($table) {
+            $table->integer('nest_left')->nullable(false)->change();
+            $table->integer('nest_right')->nullable(false)->change();
+        });
     }
 
 }
