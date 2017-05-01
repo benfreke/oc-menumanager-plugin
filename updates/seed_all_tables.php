@@ -12,9 +12,9 @@ class SeedAllTables extends Seeder
         // This is a root node
         $mainMenu = Menu::create(
             [
-                'title'       => 'Main Menu',
+                'title' => 'Main Menu',
                 'description' => 'The main menu items',
-                'url'         => ''
+                'url' => '',
             ]
         );
 
@@ -23,7 +23,7 @@ class SeedAllTables extends Seeder
             [
                 'title' => 'Home Page',
                 'description' => 'The primary navigation level',
-                'url' => 'home'
+                'url' => 'home',
             ]
         );
 
@@ -32,14 +32,14 @@ class SeedAllTables extends Seeder
             [
                 'title' => 'Ajax Framework',
                 'description' => 'Secondary item 1',
-                'url' => 'ajax'
+                'url' => 'ajax',
             ]
         );
         $homePage->children()->create(
             [
                 'title' => 'Plugin Components',
                 'description' => 'Secondary item 2',
-                'url' => 'plugins'
+                'url' => 'plugins',
             ]
         );
 
@@ -47,7 +47,7 @@ class SeedAllTables extends Seeder
             [
                 'title' => 'Menu titles do not',
                 'description' => 'Tertiary item 1',
-                'url' => ''
+                'url' => '',
             ]
         );
 
@@ -55,7 +55,7 @@ class SeedAllTables extends Seeder
             [
                 'title' => 'Have to match page titles!',
                 'description' => 'Tertiary item 2',
-                'url' => ''
+                'url' => '',
             ]
         );
         $ajaxDemo->children()->create(
@@ -63,7 +63,7 @@ class SeedAllTables extends Seeder
                 'title' => 'Google Search',
                 'description' => 'External link example',
                 'is_external' => true,
-                'url' => 'http://www.google.com'
+                'url' => 'http://www.google.com',
             ]
         );
     }
