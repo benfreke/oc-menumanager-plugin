@@ -55,3 +55,5 @@
   - Merged PR to fix syntax errors with fresh install of 1.4.6. Thanks @devlifeX
 1.4.8:
   - Merged PR to fix re-order errors. Thanks @CptMeatball
+1.5.0:
+  - Fixed bugs preventing postgres and sqlite support

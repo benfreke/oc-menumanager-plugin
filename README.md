@@ -7,7 +7,11 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.4.8**
+**Currently 1.5.0**
+
+### 1.5.0
+
+- Added support for postgres and sqlite by fixing migrations and updating mutator and accessors
 
 ### 1.4.8
 
