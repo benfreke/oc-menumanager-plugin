@@ -7,7 +7,12 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.5.0**
+**Currently 1.5.1**
+
+### 1.5.1
+
+- Add homepage for plugin details, thanks [@gegor85](https://github.com/gergo85)
+- Added a couple of missing translations
 
 ### 1.5.0
 

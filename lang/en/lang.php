@@ -3,19 +3,22 @@
 return [
     'plugin' => [
         'name' => 'Menu Manager',
-        'description' => 'Plugin to enable management of menus within October CMS.'
+        'description' => 'Plugin to enable management of menus within October CMS.',
+    ],
+    'access' => [
+        'label' => 'Manage Menus',
     ],
     'menu' => [
         'name' => 'Menus',
         'description' => 'Displays a menu on the page.',
         'editmenu' => 'Edit Menus',
-        'reordermenu' => 'Reorder Menus'
+        'reordermenu' => 'Reorder Menus',
     ],
     'misc' => [
         'menu' => 'Menu',
         'newmenu' => 'New Menu',
         'manageorder' => 'Manage Menu Order',
-        'returntomenus' => 'Return to Menus'
+        'returntomenus' => 'Return to Menus',
     ],
     'form' => [
         'create' => 'Create a Menu item',
@@ -24,7 +27,7 @@ return [
         'flashcreate' => 'Menu has been created',
         'flashupdate' => 'Menu updated',
         'flashdelete' => 'Menu deleted',
-        'manage' => 'Manage Menus'
+        'manage' => 'Manage Menus',
     ],
     'create' => [
         'menus' => 'Menus',
@@ -34,14 +37,14 @@ return [
         'cancel' => 'Cancel',
         'or' => 'or',
         'return' => 'Return to menus list',
-        'nolink' => 'No page link'
+        'nolink' => 'No page link',
     ],
     'update' => [
         'saving' => 'Saving Menu...',
         'save' => 'Save',
         'saveclose' => 'Save and Close',
         'deleting' => 'Deleting Menu...',
-        'reallydelete' => 'Do you really want to delete this menu?'
+        'reallydelete' => 'Do you really want to delete this menu?',
     ],
     'modeldata' => [
         'title' => 'Title',
@@ -49,7 +52,7 @@ return [
         'url' => 'Page linked to',
         'parameters' => 'Parameters',
         'query' => 'Query String',
-        'description' => 'Description'
+        'description' => 'Description',
     ],
     'modeldataform' => [
         'title' => 'Title',
@@ -72,12 +75,12 @@ return [
         'parameterscomment' => '{ "slug" : "my-page-slug" }',
         'querystr' => 'Extra non-OctoberCMS query string parameters (they will be automatically escaped)',
         'querystrcomment' => 'e.g "param1=foo&amp;param2=http://www.google.com"',
-        'url' => 'URL'
+        'url' => 'URL',
     ],
     'component' => [
         'start' => [
             'title' => 'Parent Node',
-            'description' => 'The parent node to get the children of'
+            'description' => 'The parent node to get the children of',
         ],
         'activenode' => [
             'description' => 'The active page. Set to "default" for the current page to be set as active',
@@ -93,7 +96,7 @@ return [
         ],
         'secondaryclasses' => [
             'title' => 'Secondary Classes',
-            'description' => 'The parent node to get the children of'
+            'description' => 'The parent node to get the children of',
         ],
         'tertiaryclasses' => [
             'description' => 'Classes to add to the secondary ul tags',
@@ -102,6 +105,6 @@ return [
         'numberoflevels' => [
             'description' => 'How many levels of menu to output',
             'title' => 'Depth',
-        ]
-    ]
+        ],
+    ],
 ];

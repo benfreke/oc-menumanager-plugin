@@ -57,3 +57,5 @@
   - Merged PR to fix re-order errors. Thanks @CptMeatball
 1.5.0:
   - Fixed bugs preventing postgres and sqlite support
+1.5.1:
+  - Added homepage to plugin information. Thanks @gergo85
