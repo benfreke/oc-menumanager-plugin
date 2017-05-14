@@ -17,11 +17,11 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'benfreke.menumanager::lang.plugin.name',
+            'name' => 'benfreke.menumanager::lang.plugin.name',
             'description' => 'benfreke.menumanager::lang.plugin.description',
-            'author'      => 'Ben Freke',
-            'icon'        => 'icon-list-alt',
-            'homepage'    => 'https://github.com/benfreke/oc-menumanager-plugin'
+            'author' => 'Ben Freke',
+            'icon' => 'icon-list-alt',
+            'homepage' => 'https://github.com/benfreke/oc-menumanager-plugin',
         ];
     }
 
@@ -34,26 +34,26 @@ class Plugin extends PluginBase
     {
         return [
             'menumanager' => [
-                'label'    => 'benfreke.menumanager::lang.menu.name',
-                'url'      => Backend::url('benfreke/menumanager/menus'),
-                'icon'     => 'icon-list-alt',
+                'label' => 'benfreke.menumanager::lang.menu.name',
+                'url' => Backend::url('benfreke/menumanager/menus'),
+                'icon' => 'icon-list-alt',
                 'permissions' => ['benfreke.menumanager.*'],
-                'order'    => 500,
+                'order' => 500,
                 'sideMenu' => [
-                    'edit'    => [
+                    'edit' => [
                         'label' => 'benfreke.menumanager::lang.menu.editmenu',
-                        'icon'  => 'icon-list-alt',
-                        'url'   => Backend::url('benfreke/menumanager/menus'),
-                        'permissions' => ['benfreke.menumanager.access_menumanager']
+                        'icon' => 'icon-list-alt',
+                        'url' => Backend::url('benfreke/menumanager/menus'),
+                        'permissions' => ['benfreke.menumanager.access_menumanager'],
                     ],
                     'reorder' => [
                         'label' => 'benfreke.menumanager::lang.menu.reordermenu',
-                        'icon'  => 'icon-exchange',
-                        'url'   => Backend::url('benfreke/menumanager/menus/reorder'),
-                        'permissions' => ['benfreke.menumanager.access_menumanager']
-                    ]
-                ]
-            ]
+                        'icon' => 'icon-exchange',
+                        'url' => Backend::url('benfreke/menumanager/menus/reorder'),
+                        'permissions' => ['benfreke.menumanager.access_menumanager'],
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -62,8 +62,8 @@ class Plugin extends PluginBase
         return [
             'benfreke.menumanager.access_menumanager' => [
                 'label' => 'Manage menu',
-                'tab'   => 'MenuManager'
-            ]
+                'tab' => 'MenuManager',
+            ],
         ];
     }
 
@@ -75,7 +75,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            '\BenFreke\MenuManager\Components\Menu' => 'menu'
+            '\BenFreke\MenuManager\Components\Menu' => 'menu',
         ];
     }
 }
