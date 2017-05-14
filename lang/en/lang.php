@@ -7,7 +7,6 @@ return [
     ],
     'access' => [
         'label' => 'Manage Menus',
-        'tab' => 'tab',
     ],
     'menu' => [
         'name' => 'Menus',
