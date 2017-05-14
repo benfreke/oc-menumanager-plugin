@@ -61,8 +61,8 @@ class Plugin extends PluginBase
     {
         return [
             'benfreke.menumanager.access_menumanager' => [
-                'label' => 'Manage menu',
-                'tab' => 'MenuManager',
+                'label' => 'benfreke.menumanager::lang.access.label',
+                'tab' => 'benfreke.menumanager::lang.plugin.name',
             ],
         ];
     }
