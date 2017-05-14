@@ -9,7 +9,6 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
-
     /**
      * Returns information about this plugin.
      *
@@ -21,7 +20,8 @@ class Plugin extends PluginBase
             'name'        => 'benfreke.menumanager::lang.plugin.name',
             'description' => 'benfreke.menumanager::lang.plugin.description',
             'author'      => 'Ben Freke',
-            'icon'        => 'icon-list-alt'
+            'icon'        => 'icon-list-alt',
+            'homepage'    => 'https://github.com/benfreke/oc-menumanager-plugin'
         ];
     }
 
@@ -59,9 +59,12 @@ class Plugin extends PluginBase
 
     public function registerPermissions()
     {
-        return array(
-            'benfreke.menumanager.access_menumanager' => ['label' => 'Manage menu', 'tab' => 'MenuManager']
-        );
+        return [
+            'benfreke.menumanager.access_menumanager' => [
+                'label' => 'Manage menu',
+                'tab'   => 'MenuManager'
+            ]
+        ];
     }
 
     /**
@@ -72,8 +75,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            '\BenFreke\MenuManager\Components\Menu' => 'menu',
+            '\BenFreke\MenuManager\Components\Menu' => 'menu'
         ];
     }
-
 }
