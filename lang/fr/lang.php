@@ -1,0 +1,110 @@
+<?php
+
+return [
+    'plugin' => [
+        'name' => 'Menu Manager',
+        'description' => 'Plugin permettant la gestion des menus dans October CMS.',
+    ],
+    'access' => [
+        'label' => 'Gérer les menus',
+    ],
+    'menu' => [
+        'name' => 'Menus',
+        'description' => 'Afficher un menu sur la page.',
+        'editmenu' => 'Éditer les menus',
+        'reordermenu' => 'Réordonner les menus',
+    ],
+    'misc' => [
+        'menu' => 'Menu',
+        'newmenu' => 'Nouveau menu',
+        'manageorder' => 'Gérer l\'ordre des menus',
+        'returntomenus' => 'Retour aux menus',
+    ],
+    'form' => [
+        'create' => 'Créer un élément de menu',
+        'update' => 'Éditer un élément de menu',
+        'preview' => 'Prévisualiser les menus',
+        'flashcreate' => 'Le menu a été créé',
+        'flashupdate' => 'Le menu a été mis à jour',
+        'flashdelete' => 'Le menu a été supprimé',
+        'manage' => 'Gérer les menus',
+    ],
+    'create' => [
+        'menus' => 'Menus',
+        'creating' => 'Création du menu...',
+        'create' => 'Créer',
+        'createclose' => 'Créer et fermer',
+        'cancel' => 'Annuler',
+        'or' => 'ou',
+        'return' => 'Retour à la liste des menus',
+        'nolink' => 'No page link',
+    ],
+    'update' => [
+        'saving' => 'Enregistrement du menu...',
+        'save' => 'Enregistrer',
+        'saveclose' => 'Enregistrer et fermer',
+        'deleting' => 'Suppression du menu...',
+        'reallydelete' => 'Voulez-vous vraiment supprimer ce menu?',
+    ],
+    'modeldata' => [
+        'title' => 'Titre',
+        'enabled' => 'Activé',
+        'url' => 'Page liée',
+        'parameters' => 'Paramètres',
+        'query' => 'Query String',
+        'description' => 'Description',
+    ],
+    'modeldataform' => [
+        'title' => 'Titre',
+        'description' => 'Usage/Description (optionnel)',
+        'enabled' => 'Activer/désactiver ce lien',
+        'optdisabled' => 'Désactivé',
+        'optenabled' => 'Activé',
+        'external' => 'Type de menu',
+        'selectmenutype' => '-- Select Menu Type --',
+        'optinternal' => 'Interne',
+        'optexternal' => 'Externe',
+        'internalurl' => 'Fichier lié',
+        'internalurlplaceholder' => '-- Choisir un fichier lié --',
+        'externalurl' => 'Entrer une adresse externe',
+        'externalurlcomment' => 'ex: http://exemple.com',
+        'linktarget' => 'Ouvrir le lien dans',
+        'self' => 'le même onglet',
+        'blank' => 'un nouvel onglet',
+        'parameters' => 'Paramètres d\'URL supplémentaires (JSON) ex: l\'URL utilises un paramètre "/:slug"',
+        'parameterscomment' => '{ "slug" : "mon-slug-de-page" }',
+        'querystr' => 'Paramètres query string supplémentaires non liés à October CMS (Ils seront automatiquement échappés)',
+        'querystrcomment' => 'ex: "param1=foo&amp;param2=http://www.google.com"',
+        'url' => 'URL',
+    ],
+    'component' => [
+        'start' => [
+            'title' => 'Noeud parent',
+            'description' => 'Noeud parent à partir duquel récupérer les enfants',
+        ],
+        'activenode' => [
+            'description' => 'Page active. Mettre à "default" pour utiliser la page en cours',
+            'title' => 'Noeud actif',
+        ],
+        'listitemclasses' => [
+            'description' => 'Classes à ajouter à la balise li',
+            'title' => 'Classes des éléments li',
+        ],
+        'primaryclasses' => [
+            'description' => 'Classes à ajouter à la balise ul principale',
+            'title' => 'Classes principales',
+        ],
+        'secondaryclasses' => [
+            'title' => 'Classes secondaires',
+            'description' => 'Classes à ajouter à la balise ul secondaire',
+        ],
+        'tertiaryclasses' => [
+            'description' => 'Classes à ajouter à la balise ul tertiaire',
+            'title' => 'Classes tertiaires',
+        ],
+        'numberoflevels' => [
+            'description' => 'Nombre de niveau à afficher',
+            'title' => 'Profondeur',
+        ],
+    ],
+];
