@@ -22,6 +22,9 @@ recordsPerPage: 50
 
 showTree: true
 
+# Show selectable checkboxes next to each menu item in the main list
+showCheckboxes: true
+
 # Toolbar widget configuration
 toolbar:
     # Partial for toolbar buttons
