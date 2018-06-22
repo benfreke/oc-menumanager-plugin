@@ -26,7 +26,7 @@ class Menu extends Model
     /**
      * @var array Translatable fields
      */
-    public $translatable = ['title', 'description'];
+    public $translatable = ['title', 'description', 'parameters'];
 
     /**
      * @var array Validation rules
