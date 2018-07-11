@@ -64,3 +64,6 @@
   - Added code of conduct
 1.5.3:
   - Added ability to delete menus. Thanks @osmanzeki
+1.6.0:
+  - Added the ability to translate parameters. Thanks @CptMeatball
+  - Added docker support for local development

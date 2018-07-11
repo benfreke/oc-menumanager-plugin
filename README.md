@@ -7,7 +7,12 @@ A component is included to output the menu in pages/partials/layout. It can incl
 
 ## Versions ##
 
-**Currently 1.5.3**
+**Currently 1.5.4**
+
+### 1.5.4
+
+- Added the ability to translate parameters. Thanks [@CptMeatball](https://github.com/CptMeatball)
+- Added docker support for local development
 
 ### 1.5.3
 
@@ -194,6 +199,44 @@ If we select "Home" as the Parent Node, we will have 2 menu items visible, "Plug
 
 This allows the creation of side navigation relevant to the page you are currently on by re-using the same backend menu but having separate components on the page use different Parent Nodes to change the output.
 
+## Demonstration of Menu Manager
+
+You can create an example of this plugin in action in OctoberCMS (using the default theme) by the following steps
+
+1. Add the line `  - seed_all_tables` to the bottom of `updates/version.yaml`
+    1. Include the two spaces before the `-` to ensure it lines up with the existing entries 
+1. On the command line, type `php artisan plugin:refresh BenFreke.MenuManager`
+1. In the CMS admin, click on `CMS` in the header
+1. Click on `Partials` in the left hand menu
+1. Click on `header.html` in the second to left menu
+1. Select and delete the unordered list that holds the main menu
+1. In the left hand menu, click `Components`
+1. In the second to left menu, click `Menu Manager`
+1. Click the revealed `Menus` sub item
+1. In the content pane, click on the `Menus` component to reveal options
+1. Change the `Primary Classes` field to contain `nav navbar-nav`
+1. Go to the site. The menu is now created using this component
+
+The html code for the partial should now look like this
+
+    <!-- Nav -->
+    <nav id="layout-nav" class="navbar navbar-inverse navbar-fixed-top navbar-autohide" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ 'home'|page }}">October Demo</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-main-collapse">
+                {% component 'menu' %}     
+            </div>
+        </div>
+    </nav>
+
 ## Other
 
 If you have any suggestions, please [raise an issue](https://github.com/benfreke/oc-menumanager-plugin/issues) on the plugin's [github repository](https://github.com/benfreke/oc-menumanager-plugin).
@@ -203,3 +246,4 @@ If you have any suggestions, please [raise an issue](https://github.com/benfreke
 - Obviously the [OctoberCMS](http://octobercms.com/) creators, [Samuel Georges](https://github.com/daftspunk) and [Aleksey Bobkov](https://github.com/alekseybobkov)
 - [DanielHitchen](https://github.com/DanielHitchen) for bug reporting, enhancements and requests/ideas
 - [Adis](https://github.com/adisos) for help with the 1.1.x releases
+- Various other people who have taken the time to create Pull Requests. 

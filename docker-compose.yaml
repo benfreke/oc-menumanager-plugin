@@ -1,0 +1,10 @@
+version: '3.6'
+services:
+  web:
+    image: aspendigital/octobercms
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/var/www/html/plugins/benfreke/menumanager
+    environment:
+      - TZ=Australia/Brisbane

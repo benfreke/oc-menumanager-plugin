@@ -19,23 +19,23 @@ class SeedAllTables extends Seeder
         );
 
         // The top, or primary level of navigation
-        $homePage = $mainMenu->children()->create(
+        $mainMenu->children()->create(
             [
-                'title' => 'Home Page',
+                'title' => 'Basic Concepts',
                 'description' => 'The primary navigation level',
                 'url' => 'home',
             ]
         );
 
         // Secondary navigation
-        $ajaxDemo = $homePage->children()->create(
+        $mainMenu->children()->create(
             [
                 'title' => 'Ajax Framework',
                 'description' => 'Secondary item 1',
                 'url' => 'ajax',
             ]
         );
-        $homePage->children()->create(
+        $mainMenu->children()->create(
             [
                 'title' => 'Plugin Components',
                 'description' => 'Secondary item 2',
@@ -43,7 +43,15 @@ class SeedAllTables extends Seeder
             ]
         );
 
-        $ajaxDemo->children()->create(
+        $menuExamples = $mainMenu->children()->create(
+            [
+                'title' => 'Menu Examples',
+                'description' => 'Holder for menu examples',
+                'url' => '',
+            ]
+        );
+
+        $menuExamples->children()->create(
             [
                 'title' => 'Menu titles do not',
                 'description' => 'Tertiary item 1',
@@ -51,14 +59,14 @@ class SeedAllTables extends Seeder
             ]
         );
 
-        $ajaxDemo->children()->create(
+        $menuExamples->children()->create(
             [
                 'title' => 'Have to match page titles!',
                 'description' => 'Tertiary item 2',
                 'url' => '',
             ]
         );
-        $ajaxDemo->children()->create(
+        $menuExamples->children()->create(
             [
                 'title' => 'Google Search',
                 'description' => 'External link example',
